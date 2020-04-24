@@ -22,10 +22,14 @@ Below is a list of the currently supported commands.
 2. Run esc.exe.
   
 ### Run via Msbuild.exe
-Run the msbuild.exe command from its path using one of the commands below. You can explicitly define the .xml or .csproj file to load, but it is not required if only one .csproj file exists your current working directory. 
+Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
+<br><br>
+Run one of the msbuild commands below to start the Evil SQL Client console using the esc.csproj file.  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
+<br><br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
+	
  
  # Supported Commands
 
@@ -136,6 +140,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  show access
  export discovered c:\temp\discovered.csv
  export access c:\temp\access.csv
+ export access c:\temp\access.csv instance
  </pre>
  
  # Pending Features

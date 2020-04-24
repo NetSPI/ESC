@@ -1,28 +1,25 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<!--
 		Author: Scott Sutherland (@_nullbind), NetSPI 2020
-		Version: 0.99 (work in progress) 
-		Description: 
-		This is a simple C# SQL Server client console with data exfiltration capabilities 
-		that can be run through msbuild to avoid EDR/White listing/Etc.
+		Version: Version: v1.0
 		
-		Execution Instructions: 
-		1. Save this file as an .xml or .csproj file.
-		2. In a console, navigate to the folder containing this .csproj or .xml file.
-		3. Run the msbuild.exe command from its path using one of the commands below. 
-		   You can explicitly define the .csproj file to load, but it is not required 
-           if only one .csproj file exists your current working directory. 
-			C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe 
-			C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.xml
-			C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj
-			
-		Note: This execution technique is entirely based on Casey Smith magic.
-		http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html
+		Description
+		Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced 
+		server discovery, access, and data exfiltration features. :) Built for execution 
+		as a stand alone assembly, or through a alternative mediums for .net code 
+		execution such as msbuild and PowerShell. While it is a very handy SQL Client 
+		for legitimate purposes, it was designed for use during penetration testing and 
+		red team engagements. 
 		
-		TODO
-		- *discover -> *check access -> *run query -> Escalation -> oscmd + data access - > exfiltration 
-		- msbuild + sharp.exe + powershell 
-		- add discover local 
+		Using msbuild.exe to execute .net code through inline tasks is a technique that
+		was developed by Casey Smith. Run one of the msbuild commands below to start 
+		the Evil SQL Client console using the esc.csproj file. You can explicitly 
+		provide it as a .xml or .csproj file, but no file name has to be provided if 
+		only one .csproj file exists in the directory your executing msbuild.exe from.
+		
+		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe 
+		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.xml
+		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj		
 	-->
 	<Target Name="SQLClient">
 		<SQLClientExample />
@@ -363,13 +360,7 @@ EXAMPLE SCRIPT EXECUTION
 				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.Secure);
 				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null,AuthenticationTypes.SecureSocketsLayer);
 				RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;	
-				Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
-				
-				// Trust all SSL certs
-				ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; 
-
-				// Turn on TLS 1.1 and 1.2 without affecting other protocols:
-				ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+				Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");				
 				
 				try{
 					using (DirectorySearcher ds = new DirectorySearcher(RootDirEntry))
