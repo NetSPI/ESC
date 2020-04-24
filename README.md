@@ -6,10 +6,13 @@ Evil SQL Client (ESC) is a .net SQL client with enhanced server discovery, acces
  
 Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are also related to SQL Server.
   
-# Compile to EXE
+# Compile to Exe
 1. Open project in Visual Studio from the esc folder.
 2. Build.
 3. Run esc.exe.
+
+# Download Release Exe
+You can download compiled releases from: https://github.com/NetSPI/ESC/releases
   
 # Execute via MSBUILD 
 Run the msbuild.exe command from its path using one of the commands below. You can explicitly define the .xml or .csproj file to load, but it is not required if only one .csproj file exists your current working directory. 
