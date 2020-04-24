@@ -1,16 +1,10 @@
 ﻿using System;
 using System.IO;
-using Microsoft.Build.Framework;
-using Microsoft.Build.Utilities;
-using System.Linq;
-using System.Collections;
 using System.Text;
-using System.Xml;
 using System.Data;
 using System.Collections.Generic;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Security.Cryptography;
 using System.Net.NetworkInformation;
 using System.Net;
@@ -18,9 +12,9 @@ using System.DirectoryServices;
 
 namespace evilsqlclient
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             // Setup columns for discovery table
