@@ -1,7 +1,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<!--
 		Author: Scott Sutherland (@_nullbind), NetSPI 2020
-		Version: 0.99 (work in progress) 
+		Version: 0.999 (work in progress) 
 		Description: 
 		This is a simple C# SQL Server client console with data exfiltration capabilities 
 		that can be run through msbuild to avoid EDR/White listing/Etc.
@@ -358,9 +358,9 @@ EXAMPLE SCRIPT EXECUTION
                 Domain DomainInfo = Domain.GetCurrentDomain();
                 string MyDC = DomainInfo.PdcRoleOwner.Name;
 				
-				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
+				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC,null,null,AuthenticationTypes.SecureSocketsLayer);
 				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.Secure);
-				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null,AuthenticationTypes.SecureSocketsLayer);
+				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null,AuthenticationTypes.SecureSocketsLayer);
 				RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;	
 				Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
 				
