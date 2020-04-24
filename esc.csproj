@@ -17,16 +17,7 @@
 			C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj
 			
 		Note: This execution technique is entirely based on Casey Smith magic.
-		http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html
-		
-		TODO
-		- *discover -> *check access -> *run query -> Escalation -> oscmd + data access - > exfiltration 
-		- add discover local 
-    - add link crawl
-    - add data find
-    - add escalate dbowner
-    - add escalate imperonsate
-    - add fuzz domain account
+		http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html		
 	-->
 	<Target Name="SQLClient">
 		<SQLClientExample />
