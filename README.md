@@ -2,10 +2,12 @@
  Version: v1.0 <Br>
  Author: Scott Sutherland (@_nullbind), NetSPI <Br>
  Description: <br>
-A SQL client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through an alternative medium for  .net code execution such as msbuild and PowerShell. 
+A .net SQL client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through a alternative mediums for  .net code execution such as msbuild and PowerShell. <br>
+ 
+Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are also related to SQL Server.
   
 # Compile to EXE
-1. Open project in Visual Studio.
+1. Open project in Visual Studio from the esc folder.
 2. Build.
 3. Run esc.exe.
   
