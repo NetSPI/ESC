@@ -153,6 +153,7 @@ namespace evilsqlclient
 				    Note: Will use alternative credentials if provided. (set username / set password)
      show access			List SQL Server instances that can be logged into.
      export access outpath		Export list of SQL Server instances that can be logged into to a file.
+     export access outpath instance Only export the instance names.  Usefull for using with 'discover file' later.
      clear access			Clear the in memory list of SQL Server instances that can be logged into.			
      check defaultlogins		Attempts to identify SQL Server instances that match known application and attempts the associate usernames and passwords.
 
@@ -2659,23 +2660,50 @@ namespace evilsqlclient
                         // Parse file path
                         String filePath1 = MyQuery.ToLower();
                         String targetPath = filePath1.Split(' ')[2];
+                        String InstanceOnly = "";
+                        try
+                        {
+                            InstanceOnly = filePath1.Split(' ')[3];
+                        }
+                        catch
+                        {
+                            InstanceOnly = "";
+                        }
+
+                        // Unique the list
+                        DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                        DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");
 
                         StringBuilder fileContent = new StringBuilder();
 
-                        foreach (var col in SQLCommands.MasterAccessList.Columns)
+                        if (InstanceOnly.Equals(""))
                         {
-                            fileContent.Append(col.ToString() + ",");
-                        }
-
-                        fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
-                        foreach (DataRow dr in SQLCommands.MasterAccessList.Rows)
-                        {
-                            foreach (var column in dr.ItemArray)
+                            // Write headers
+                            foreach (var col in distinctValues.Columns)
                             {
-                                fileContent.Append("\"" + column.ToString() + "\",");
+                                fileContent.Append(col.ToString() + ",");
                             }
 
+                            // Write Data 
                             fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+                            foreach (DataRow dr in distinctValues.Rows)
+                            {
+                                foreach (var column in dr.ItemArray)
+                                {
+                                    fileContent.Append("\"" + column.ToString() + "\",");
+                                }
+
+                                fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+                            }
+                        }
+
+                        // Write instance only 
+                        if (!InstanceOnly.Equals(""))
+                        {
+                            foreach (DataRow myrow in distinctValues.Rows)
+                            {
+                                fileContent.Append(myrow["Instance"].ToString() + "\n");
+                            }
                         }
 
                         try
