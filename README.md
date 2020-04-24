@@ -8,15 +8,15 @@ Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are al
 
 # Exection Options
 
-## Compile and Run Exe
+### Compile and Run Exe
 1. Open project in Visual Studio from the esc folder.
 2. Build.
 3. Run esc.exe.
 
-## Download and Run Exe
+### Download and Run Exe
 You can download compiled releases from: https://github.com/NetSPI/ESC/releases
   
-## Run via Msbuild.exe
+### Run via Msbuild.exe
 Run the msbuild.exe command from its path using one of the commands below. You can explicitly define the .xml or .csproj file to load, but it is not required if only one .csproj file exists your current working directory. 
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
@@ -24,7 +24,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  
  # Supported Commands
 
- ## COMMAND LIST
+ ### COMMAND LIST
  <pre>
     SHOW:
      show settings 			Show connection and exfil settings.
@@ -117,7 +117,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
      exit
  </pre>
  
- ## Recommend Command Sequence
+ ### Recommend Command Sequence
  <pre>
  discover domainspn 
  discover broadcast
