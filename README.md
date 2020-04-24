@@ -18,7 +18,7 @@ Below is a list of the currently supported commands.
 3. Run esc.exe.
 
 ### Download and Run Exe
-1. Download compiled releases from https://github.com/NetSPI/ESC/releases
+1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
   
 ### Run via Msbuild.exe
