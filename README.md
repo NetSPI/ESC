@@ -22,7 +22,7 @@ Below is a list of the currently supported commands.
 2. Run esc.exe.
   
 ### Run via Msbuild.exe
-Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](http://subt0x11.blogspot.com/2018/11/microsoft-build-engine-compromise-part_13.html). 
+Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://github.com/3gstudent/msbuild-inline-task). 
 <br><br>
 Run one of the msbuild commands below to start the Evil SQL Client console using the esc.csproj file.  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
