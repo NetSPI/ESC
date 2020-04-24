@@ -17,6 +17,9 @@ Below is a list of the currently supported commands.
 2. Build.
 3. Run esc.exe.
 
+![buildesc](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-1.png) 
+![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png) 
+
 ### Download and Run Exe
 1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
@@ -29,7 +32,8 @@ Run one of the msbuild commands below to start the Evil SQL Client console using
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
-	
+
+![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
  
  # Supported Commands
 
