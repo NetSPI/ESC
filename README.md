@@ -140,9 +140,9 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  
  # Pending Features
 * Add discover local 
+* Add column find
+* Add domain account enumeration
 * Add link crawl + linkquery + linkoscmd
-* Add data find
 * Add escalate dbowner
 * Add escalate imperonsate
-* Add domain account enumeration
 * Threading
