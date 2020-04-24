@@ -1,8 +1,8 @@
 # Evil SQL Client (ESC)
  Version: v1.0 <Br>
  Author: Scott Sutherland (@_nullbind), NetSPI <Br>
- Description: <br>
-A .net SQL client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through a alternative mediums for  .net code execution such as msbuild and PowerShell. <br>
+<br>
+Evil SQL Client (ESC) is a .net SQL client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through a alternative mediums for  .net code execution such as msbuild and PowerShell. <br>
  
 Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are also related to SQL Server.
   
