@@ -119,7 +119,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
      exit
  </pre>
  
- ### Recommend Command Sequence
+ ### Recommended Command Sequence
  Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
  <pre>
  discover domainspn 
