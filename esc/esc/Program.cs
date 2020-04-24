@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Net.NetworkInformation;
 using System.Net;
 using System.DirectoryServices;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace evilsqlclient
 {
@@ -313,10 +314,13 @@ namespace evilsqlclient
                 mytable.Columns.Add("SamAccountName");
                 // mytable.Columns.Add("servicePrincipalName");
 
-                // Setup LDAP query
-                string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\", "");
-                DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636", null, null, AuthenticationTypes.SecureSocketsLayer);
-                RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;
+                // Setup LDAP query                
+                //string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\", "");
+                Domain DomainInfo = Domain.GetCurrentDomain();
+                string MyDC = DomainInfo.PdcRoleOwner.Name;
+                //DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636", null, null, AuthenticationTypes.SecureSocketsLayer);
+                DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389", null, null);
+                //RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;
                 Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
 
                 try
@@ -1571,6 +1575,9 @@ namespace evilsqlclient
                 return null;
             }
 
+            // ------------------------------------------------------------
+            // FUNCTION: LISTLOGINS
+            // ------------------------------------------------------------	
             public static string ListLogins()
             {
                 CheckQueryReady();
@@ -3030,7 +3037,7 @@ namespace evilsqlclient
                 }
 
                 // ------------------------------------------------------------
-                //  PERFORM QUERY 
+                //  PERFORM QUERY - SINGLE INSTANCE AND TARGETALL SUPPORTED
                 // ------------------------------------------------------------
                 CheckQueryReady();
                 if (ReadyforQueryG.Equals("yes"))
