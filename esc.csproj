@@ -360,7 +360,7 @@ EXAMPLE SCRIPT EXECUTION
 				
 				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
 				//DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.Secure);
-				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null);
+				DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389",null,null,AuthenticationTypes.SecureSocketsLayer);
 				RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;	
 				Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
 				
