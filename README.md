@@ -7,6 +7,7 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced se
 Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are also related to SQL Server.
 
 # Exection Options
+Below is a list of the currently supported commands.
 
 ### Compile and Run Exe
 1. Open project in Visual Studio from the esc folder.
@@ -119,6 +120,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  </pre>
  
  ### Recommend Command Sequence
+ Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
  <pre>
  discover domainspn 
  discover broadcast
