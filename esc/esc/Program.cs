@@ -10,6 +10,7 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
+using System.DirectoryServices.Protocols;
 
 namespace evilsqlclient
 {
@@ -315,21 +316,24 @@ namespace evilsqlclient
                 // mytable.Columns.Add("servicePrincipalName");
 
                 // Setup LDAP query                
-                //string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\", "");
                 Domain DomainInfo = Domain.GetCurrentDomain();
                 string MyDC = DomainInfo.PdcRoleOwner.Name;
+
+                DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC, null, null, AuthenticationTypes.SecureSocketsLayer);
                 //DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636", null, null, AuthenticationTypes.SecureSocketsLayer);
-                DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389", null, null);
-                //RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;
+                //DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":389", null, null);
+                RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;
+
+                // Status user
                 Console.WriteLine("\nQuerying " + MyDC + " domain controller for SQL Server SPNs.\n");
 
+                // Execute Query
                 try
                 {
                     using (DirectorySearcher ds = new DirectorySearcher(RootDirEntry))
-                    {
-                        //ds.Filter = "(&(objectClass=user)(objectCategory=person))";
+                    {                                            
                         ds.Filter = "(servicePrincipalName=*mssql*)";
-                        ds.SearchScope = SearchScope.Subtree;
+                        ds.SearchScope = System.DirectoryServices.SearchScope.Subtree;
                         ds.PageSize = 1000;
                         using (SearchResultCollection src = ds.FindAll())
                         {
