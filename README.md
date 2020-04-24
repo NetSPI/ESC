@@ -22,22 +22,9 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
  
- # RECOMMENDED COMMAND SEQUENCE:
- <pre>
- discover domainspn 
- discover broadcast
- show discovered
- set targetall enabled
- show settings
- check access
- check defaultpw
- check loginaspw
- show access
- export discovered c:\temp\discovered.csv
- export access c:\temp\access.csv
- </pre>
- 
- # COMMAND LIST
+ # Supported Commands
+
+ ## COMMAND LIST
  <pre>
     SHOW:
      show settings 			Show connection and exfil settings.
@@ -128,4 +115,19 @@ Run the msbuild.exe command from its path using one of the commands below. You c
      help
      clear
      exit
+ </pre>
+ 
+ ## Recommend Command Sequence
+ <pre>
+ discover domainspn 
+ discover broadcast
+ show discovered
+ set targetall enabled
+ show settings
+ check access
+ check defaultpw
+ check loginaspw
+ show access
+ export discovered c:\temp\discovered.csv
+ export access c:\temp\access.csv
  </pre>
