@@ -146,3 +146,5 @@ Run the msbuild.exe command from its path using one of the commands below. You c
 * Add escalate dbowner
 * Add escalate imperonsate
 * Threading
+* Finish data encryption
+* Create python/powershell script to decrypt encrypted exfiltrated data
