@@ -1557,7 +1557,10 @@ EXAMPLE SCRIPT EXECUTION
 				}	
 				return null;	
 			}				
-			
+            			
+			// ------------------------------------------------------------
+            		// FUNCTION: LISTLOGINS
+            		// ------------------------------------------------------------				
 			public static string ListLogins()
 			{
 				CheckQueryReady();
