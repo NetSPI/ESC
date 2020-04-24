@@ -10,7 +10,6 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
-using System.DirectoryServices.Protocols;
 
 namespace evilsqlclient
 {
