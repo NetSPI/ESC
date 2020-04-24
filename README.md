@@ -5,7 +5,7 @@
 A SQL client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through an alternative medium for  .net code execution such as msbuild and PowerShell. 
   
 # Compile to EXE
-1. Open project in Visual Studio.
+1. Open project in Visual Studio from the esc folder.
 2. Build.
 3. Run esc.exe.
   
