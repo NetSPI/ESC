@@ -6,7 +6,7 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced se
  
 Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are also related to SQL Server.
 
-# Exection Options
+# Execution Options
 Below is a list of the currently supported commands.
 
 ### Compile and Run Exe
