@@ -2624,33 +2624,37 @@ EXAMPLE SCRIPT EXECUTION
 							InstanceOnly = "";
 						}						
 						
+                        // Unique the list
+                        DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                        DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");						
+						
 						StringBuilder fileContent = new StringBuilder();
 
 						if(InstanceOnly.Equals(""))
 						{
-								// Write headers
-								foreach (var col in SQLCommands.MasterAccessList.Columns) 
-								{
-									fileContent.Append(col.ToString() + ",");
-								}
+							// Write headers
+							foreach (var col in distinctValues.Columns) 
+							{
+								fileContent.Append(col.ToString() + ",");
+							}
 
-								// Write Data 
-								fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
-								foreach (DataRow dr in SQLCommands.MasterAccessList.Rows) 
+							// Write Data 
+							fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+							foreach (DataRow dr in distinctValues.Rows) 
+							{
+								foreach (var column in dr.ItemArray) 
 								{
-									foreach (var column in dr.ItemArray) 
-									{
-										fileContent.Append("\"" + column.ToString() + "\",");
-									}
-								
-									fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+									fileContent.Append("\"" + column.ToString() + "\",");
 								}
+							
+								fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+							}
 						}
 						
 						// Write instance only 
 						if(!InstanceOnly.Equals(""))
 						{
-							foreach (DataRow myrow in SQLCommands.MasterAccessList.Rows) 
+							foreach (DataRow myrow in distinctValues.Rows) 
 							{
 								fileContent.Append(myrow["Instance"].ToString() + "\n");													
 							}							
