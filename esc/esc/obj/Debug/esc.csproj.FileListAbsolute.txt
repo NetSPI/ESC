@@ -1,0 +1,7 @@
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\bin\Debug\esc.exe.config
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\bin\Debug\esc.exe
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\bin\Debug\esc.pdb
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\obj\Debug\esc.csprojAssemblyReference.cache
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\obj\Debug\esc.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\obj\Debug\esc.exe
+C:\Users\ssutherland\Documents\GitHub\ESC\esc\esc\obj\Debug\esc.pdb
