@@ -1,7 +1,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<!--
 		Author: Scott Sutherland (@_nullbind), NetSPI 2020
-		Version: 0.999 (work in progress) 
+		Version: 0.99 (work in progress) 
 		Description: 
 		This is a simple C# SQL Server client console with data exfiltration capabilities 
 		that can be run through msbuild to avoid EDR/White listing/Etc.
@@ -197,6 +197,7 @@ INITAL ACCESS COMMANDS:
 				Note: Will use alternative credentials if provided. (set username / set password)
  show access			List SQL Server instances that can be logged into.
  export access outpath		Export list of SQL Server instances that can be logged into to a file.
+ export access outpath instance Only export the instance names.  Usefull for using with 'discover file' later.
  clear access			Clear the in memory list of SQL Server instances that can be logged into.			
  check defaultlogins		Attempts to identify SQL Server instances that match known application and attempts the associate usernames and passwords.
 
@@ -2068,7 +2069,7 @@ EXAMPLE SCRIPT EXECUTION
 										}
 										catch(SqlException ex)
 										{
-											Console.WriteLine("" + instance + ": LOGIN, CONNECITON, or QUERY FAILED");
+											Console.WriteLine("" + instance + ": LOGIN, CONNECTION, or QUERY FAILED");
 											if(VerboseG.Equals("enabled"))
 											{
 												Console.WriteLine("\n" + ex.Errors[0].Message + "\n");
@@ -2568,7 +2569,7 @@ EXAMPLE SCRIPT EXECUTION
 						Console.Write("\nSQLCLIENT> ");
 					}	
 
-					// SHOW SQL SERVER INSTANCES THAT CAN BE LOGGED INTO
+					// SHOW ACCESS - SQL SERVER INSTANCES THAT CAN BE LOGGED INTO
 					bool showaccessCheck = MyQuery.ToLower().Contains("show access");							
 					if(showaccessCheck)
 					{						
@@ -2614,15 +2615,26 @@ EXAMPLE SCRIPT EXECUTION
 					{							
 						// Parse file path
 						String filePath1 = MyQuery.ToLower();		
-						String targetPath = filePath1.Split(' ')[2];						 
+						String targetPath = filePath1.Split(' ')[2];
+						String InstanceOnly = "";
+						try
+						{
+							InstanceOnly = filePath1.Split(' ')[3];
+						}catch{
+							InstanceOnly = "";
+						}						
 						
 						StringBuilder fileContent = new StringBuilder();
-							
+
+						if(InstanceOnly.Equals(""))
+						{
+								// Write headers
 								foreach (var col in SQLCommands.MasterAccessList.Columns) 
 								{
 									fileContent.Append(col.ToString() + ",");
 								}
 
+								// Write Data 
 								fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
 								foreach (DataRow dr in SQLCommands.MasterAccessList.Rows) 
 								{
@@ -2633,14 +2645,24 @@ EXAMPLE SCRIPT EXECUTION
 								
 									fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
 								}
+						}
+						
+						// Write instance only 
+						if(!InstanceOnly.Equals(""))
+						{
+							foreach (DataRow myrow in SQLCommands.MasterAccessList.Rows) 
+							{
+								fileContent.Append(myrow["Instance"].ToString() + "\n");													
+							}							
+						}
 
-								try{
-									// write file output
-									System.IO.File.WriteAllText(targetPath, fileContent.ToString());
-									Console.WriteLine("\n" + SQLCommands.MasterAccessList.Rows.Count + " instances were written to " + targetPath);
-								}catch{
-									Console.WriteLine("\nUnable to write file.\n");
-								}	
+						try{
+							// write file output
+							System.IO.File.WriteAllText(targetPath, fileContent.ToString());
+							Console.WriteLine("\n" + SQLCommands.MasterAccessList.Rows.Count + " instances were written to " + targetPath);
+						}catch{
+							Console.WriteLine("\nUnable to write file.\n");
+						}	
 
 						// Display console	
 						Console.Write("\nSQLCLIENT> ");
