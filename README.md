@@ -137,3 +137,11 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  export discovered c:\temp\discovered.csv
  export access c:\temp\access.csv
  </pre>
+ 
+ # Pending Features
+* Add discover local 
+* Add link crawl + linkquery + linkoscmd
+* Add data find
+* Add escalate dbowner
+* Add escalate imperonsate
+* Add domain account enumeration
