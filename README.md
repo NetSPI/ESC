@@ -14,7 +14,8 @@ Functionality based on the PowerUpSQL, DAFT, and SQLi Wiki projects which are al
 3. Run esc.exe.
 
 ### Download and Run Exe
-You can download compiled releases from: https://github.com/NetSPI/ESC/releases
+1. Download compiled releases from https://github.com/NetSPI/ESC/releases
+2. Run esc.exe.
   
 ### Run via Msbuild.exe
 Run the msbuild.exe command from its path using one of the commands below. You can explicitly define the .xml or .csproj file to load, but it is not required if only one .csproj file exists your current working directory. 
