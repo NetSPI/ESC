@@ -136,6 +136,7 @@ Run the msbuild.exe command from its path using one of the commands below. You c
  show access
  export discovered c:\temp\discovered.csv
  export access c:\temp\access.csv
+  export access c:\temp\access.csv instance
  </pre>
  
  # Pending Features
