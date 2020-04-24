@@ -11,6 +11,21 @@ Compile in visual studio. and run assembly.
   
 # Execute via MSBUILD 
 Run the msbuild.exe command from its path using one of the commands below. You can explicitly define the .xml or .csproj file to load, but it is not required if only one .csproj file exists your current working directory. 
- ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe `
- `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj`
- `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
+ ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
+ `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
+ `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
+ 
+ # RECOMMENDED COMMAND SEQUENCE:
+ <pre>
+ discover domainspn 
+ discover broadcast
+ show discovered
+ set targetall enabled
+ show settings
+ check access
+ check defaultpw
+ check loginaspw
+ show access
+ export discovered c:\temp\discovered.csv
+ export access c:\temp\access.csv
+ </pre>
