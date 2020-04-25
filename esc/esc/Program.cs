@@ -45,17 +45,6 @@ namespace evilsqlclient
             SQLCommands.RunSQLConsole();
         }
 
-        // https://stackoverflow.com/questions/1596530/multi-dimensional-arraylist-or-list-in-c 
-        public class MultiDimDictList<K, T> : Dictionary<K, List<T>>
-        {
-            public void Add(K key, T addObject)
-            {
-                if (!ContainsKey(key)) Add(key, new List<T>());
-                if (!base[key].Contains(addObject)) base[key].Add(addObject);
-            }
-        }
-
-
         public class SQLCommands
         {
             // --------------------------------
@@ -224,7 +213,6 @@ namespace evilsqlclient
                 return null;
             }
 
-
             // --------------------------------
             // FUNCTION: GetSQLServerFile
             // --------------------------------
@@ -266,7 +254,6 @@ namespace evilsqlclient
                 return null;
             }
 
-
             // --------------------------------
             // FUNCTION: GetSQLServersBroadCast
             // --------------------------------
@@ -307,7 +294,6 @@ namespace evilsqlclient
                 }
                 return null;
             }
-
 
             // --------------------------------
             // FUNCTION: GetSQLServersSpn
