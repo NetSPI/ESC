@@ -58,7 +58,10 @@ namespace evilsqlclient
 
         public class SQLCommands
         {
-            // Setup variables for settings
+            // --------------------------------
+            // GLOBAL OBJECTS
+            // --------------------------------	
+            #region globalobjects
             public static DataTable MasterDiscoveredList = new DataTable();
             public static DataTable MasterAccessList = new DataTable();
             public static string ConnectionStringG = "";
@@ -80,6 +83,12 @@ namespace evilsqlclient
             public static string TimeOutG = "1";
             public static string DiscoveredCountG = "0";
             public static string VerboseG = "disabled";
+            #endregion
+
+            // --------------------------------
+            // COMMON FUNCTIONS
+            // --------------------------------
+            #region commonfunctions
 
             // --------------------------------
             // FUNCTION: GetHelp
@@ -2396,6 +2405,9 @@ namespace evilsqlclient
 
                 return connectionString;
             }
+
+
+            #endregion commonfunctions
 
             // --------------------------------
             // FUNCTION: RunConsole / Query 
