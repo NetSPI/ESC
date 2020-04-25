@@ -4,7 +4,7 @@
 <br>
 Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced server discovery, access, and data exfiltration features. :)  Built for execution as a stand alone assembly, or through a alternative mediums for .net code execution such as msbuild and PowerShell. While it is a very handy SQL Client for legitimate purposes, it was designed for use during penetration testing and red team engagements.<br>
  
-Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.
+Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.
 
 
 
@@ -27,7 +27,7 @@ Below is a list of the currently supported commands.
 ### Run via Msbuild.exe
 Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
 <br><br>
-Run one of the msbuild commands below to start the Evil SQL Client console using the esc.csproj file.  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
+Run one of the msbuild commands below to start the Evil SQL Client console using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj).  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
