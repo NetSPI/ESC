@@ -17,35 +17,11 @@ namespace evilsqlclient
     {
         public static void Main(string[] args)
         {
-
-            // Setup columns for discovery table
-            SQLCommands.MasterDiscoveredList.Columns.Add("Instance");
-            SQLCommands.MasterDiscoveredList.Columns.Add("SamAccountName");
-
-            // Setup columns for access table
-            SQLCommands.MasterAccessList.Columns.Add("Instance");
-            SQLCommands.MasterAccessList.Columns.Add("DomainName");
-            SQLCommands.MasterAccessList.Columns.Add("ServiceProcessID");
-            SQLCommands.MasterAccessList.Columns.Add("ServiceName");
-            SQLCommands.MasterAccessList.Columns.Add("ServiceAccount");
-            SQLCommands.MasterAccessList.Columns.Add("AuthenticationMode");
-            SQLCommands.MasterAccessList.Columns.Add("ForcedEncryption");
-            SQLCommands.MasterAccessList.Columns.Add("Clustered");
-            SQLCommands.MasterAccessList.Columns.Add("SQLServerMajorVersion");
-            SQLCommands.MasterAccessList.Columns.Add("SQLServerVersionNumber");
-            SQLCommands.MasterAccessList.Columns.Add("SQLServerEdition");
-            SQLCommands.MasterAccessList.Columns.Add("SQLServerServicePack");
-            SQLCommands.MasterAccessList.Columns.Add("OSArchitecture");
-            SQLCommands.MasterAccessList.Columns.Add("OsVersionNumber");
-            SQLCommands.MasterAccessList.Columns.Add("CurrentLogin");
-            SQLCommands.MasterAccessList.Columns.Add("IsSysadmin");
-            SQLCommands.MasterAccessList.Columns.Add("CurrentLoginPassword");
-
             // Run console
-            SQLCommands.RunSQLConsole();
+            EvilCommands.RunSQLConsole();
         }
 
-        public class SQLCommands
+        public class EvilCommands
         {
             // --------------------------------
             // GLOBAL OBJECTS
@@ -236,7 +212,7 @@ namespace evilsqlclient
                     Instance = tr.ReadLine();
                     while (Instance != null)
                     {
-                        SQLCommands.MasterDiscoveredList.Rows.Add(Instance, "");
+                        EvilCommands.MasterDiscoveredList.Rows.Add(Instance, "");
                         Console.WriteLine(Instance);
                         Instance = tr.ReadLine();
                     }
@@ -276,7 +252,7 @@ namespace evilsqlclient
                         {
                             Instance += @"\" + Convert.ToString(row["InstanceName"]).Trim();
                         }
-                        SQLCommands.MasterDiscoveredList.Rows.Add(Instance, "");
+                        EvilCommands.MasterDiscoveredList.Rows.Add(Instance, "");
                         Console.WriteLine(Instance);
                     }
 
@@ -362,7 +338,7 @@ namespace evilsqlclient
                                             if (ServiceType.ToLower().Contains("mssql"))
                                             {
                                                 mytable.Rows.Add(new object[] { instanceName, SamAccountName });
-                                                SQLCommands.MasterDiscoveredList.Rows.Add(instanceName, SamAccountName);
+                                                EvilCommands.MasterDiscoveredList.Rows.Add(instanceName, SamAccountName);
                                             }
                                         }
                                         catch
@@ -588,7 +564,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -704,7 +680,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -829,7 +805,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -950,7 +926,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1027,7 +1003,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1122,7 +1098,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1231,7 +1207,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/									   
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1389,12 +1365,12 @@ namespace evilsqlclient
                 string columnValue = "";
                 string spaces = "";
                 int tabNumber = 1;
-                DataRow[] currentRows = SQLCommands.MasterDiscoveredList.Select(null, null, DataViewRowState.CurrentRows);
+                DataRow[] currentRows = EvilCommands.MasterDiscoveredList.Select(null, null, DataViewRowState.CurrentRows);
                 if (currentRows.Length > 1)
                 {
                     // Display columns.
                     Console.WriteLine("\n");
-                    foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
+                    foreach (DataColumn column in EvilCommands.MasterDiscoveredList.Columns)
                     {
                         // Pad column
                         columnValue = column.ColumnName.ToString();
@@ -1416,7 +1392,7 @@ namespace evilsqlclient
                     // Display rows
                     foreach (DataRow row in currentRows)
                     {
-                        foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
+                        foreach (DataColumn column in EvilCommands.MasterDiscoveredList.Columns)
                         {
                             // Pad column to 50 characters
                             columnValue = row[column].ToString();
@@ -1436,7 +1412,7 @@ namespace evilsqlclient
                     }                    
                 }
 
-                Console.WriteLine("\n" + SQLCommands.MasterDiscoveredList.Rows.Count + " instances found.");
+                Console.WriteLine("\n" + EvilCommands.MasterDiscoveredList.Rows.Count + " instances found.");
                 return null;
             }
 
@@ -1446,7 +1422,7 @@ namespace evilsqlclient
             public static string ShowAccess()
             {
                 // Unique the list
-                DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                 DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");
 
                 // Display the list 
@@ -1493,7 +1469,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1643,7 +1619,7 @@ namespace evilsqlclient
                                     // Add to access list
                                     foreach (DataRow CurrentRow in LoginInfo.Select())
                                     {
-                                        SQLCommands.MasterAccessList.Rows.Add(CurrentRow["Instance"].ToString(), CurrentRow["DomainName"].ToString(), CurrentRow["ServiceProcessID"].ToString(), CurrentRow["ServiceName"].ToString(), CurrentRow["ServiceAccount"].ToString(), CurrentRow["AuthenticationMode"].ToString(), CurrentRow["ForcedEncryption"].ToString(), CurrentRow["Clustered"].ToString(), CurrentRow["SQLServerMajorVersion"].ToString(), CurrentRow["SQLServerVersionNumber"].ToString(), CurrentRow["SQLServerEdition"].ToString(), CurrentRow["SQLServerServicePack"].ToString(), CurrentRow["OSArchitecture"].ToString(), CurrentRow["OsVersionNumber"].ToString(), CurrentRow["Currentlogin"].ToString(), CurrentRow["IsSysadmin"].ToString(), CurrentRow["Currentlogin"].ToString());
+                                        EvilCommands.MasterAccessList.Rows.Add(CurrentRow["Instance"].ToString(), CurrentRow["DomainName"].ToString(), CurrentRow["ServiceProcessID"].ToString(), CurrentRow["ServiceName"].ToString(), CurrentRow["ServiceAccount"].ToString(), CurrentRow["AuthenticationMode"].ToString(), CurrentRow["ForcedEncryption"].ToString(), CurrentRow["Clustered"].ToString(), CurrentRow["SQLServerMajorVersion"].ToString(), CurrentRow["SQLServerVersionNumber"].ToString(), CurrentRow["SQLServerEdition"].ToString(), CurrentRow["SQLServerServicePack"].ToString(), CurrentRow["OSArchitecture"].ToString(), CurrentRow["OsVersionNumber"].ToString(), CurrentRow["Currentlogin"].ToString(), CurrentRow["IsSysadmin"].ToString(), CurrentRow["Currentlogin"].ToString());
                                     }
 
                                 }
@@ -1684,7 +1660,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -1781,7 +1757,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/									   
                     if (InstanceAllG.Equals("enabled"))
                     {
-                        foreach (DataRow CurrentRecord in SQLCommands.MasterDiscoveredList.Select())
+                        foreach (DataRow CurrentRecord in EvilCommands.MasterDiscoveredList.Select())
                         {
                             TargetList.Add(CurrentRecord["Instance"].ToString());
                         }
@@ -1794,7 +1770,7 @@ namespace evilsqlclient
                     }
 
                     // Get list count
-                    var count = SQLCommands.MasterDiscoveredList.Rows.Count;
+                    var count = EvilCommands.MasterDiscoveredList.Rows.Count;
                     int countAccessible = 0;
                     Console.WriteLine("\n" + count + " instances will be targeted.");
 
@@ -1904,7 +1880,7 @@ namespace evilsqlclient
                                 Console.WriteLine("Login is Sysadmin    : " + CurrentRecord["IsSysadmin"].ToString());
 
                                 // Add to access list								
-                                SQLCommands.MasterAccessList.Rows.Add(CurrentRecord["Instance"].ToString(), CurrentRecord["DomainName"].ToString(), CurrentRecord["ServiceProcessID"].ToString(), CurrentRecord["ServiceName"].ToString(), CurrentRecord["ServiceAccount"].ToString(), CurrentRecord["AuthenticationMode"].ToString(), CurrentRecord["ForcedEncryption"].ToString(), CurrentRecord["Clustered"].ToString(), CurrentRecord["SQLServerMajorVersion"].ToString(), CurrentRecord["SQLServerVersionNumber"].ToString(), CurrentRecord["SQLServerEdition"].ToString(), CurrentRecord["SQLServerServicePack"].ToString(), CurrentRecord["OSArchitecture"].ToString(), CurrentRecord["OsVersionNumber"].ToString(), CurrentRecord["CurrentLogin"].ToString(), CurrentRecord["IsSysadmin"].ToString(), PasswordG);
+                                EvilCommands.MasterAccessList.Rows.Add(CurrentRecord["Instance"].ToString(), CurrentRecord["DomainName"].ToString(), CurrentRecord["ServiceProcessID"].ToString(), CurrentRecord["ServiceName"].ToString(), CurrentRecord["ServiceAccount"].ToString(), CurrentRecord["AuthenticationMode"].ToString(), CurrentRecord["ForcedEncryption"].ToString(), CurrentRecord["Clustered"].ToString(), CurrentRecord["SQLServerMajorVersion"].ToString(), CurrentRecord["SQLServerVersionNumber"].ToString(), CurrentRecord["SQLServerEdition"].ToString(), CurrentRecord["SQLServerServicePack"].ToString(), CurrentRecord["OSArchitecture"].ToString(), CurrentRecord["OsVersionNumber"].ToString(), CurrentRecord["CurrentLogin"].ToString(), CurrentRecord["IsSysadmin"].ToString(), PasswordG);
 
                                 // Add to count
                                 countAccessible = countAccessible + 1;
@@ -1943,7 +1919,7 @@ namespace evilsqlclient
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/									   
                     if (InstanceAllG.Equals("enabled"))
                     {
-                        foreach (DataRow CurrentRecord in SQLCommands.MasterDiscoveredList.Select())
+                        foreach (DataRow CurrentRecord in EvilCommands.MasterDiscoveredList.Select())
                         {
                             TargetList.Add(CurrentRecord["Instance"].ToString());
                         }
@@ -2163,7 +2139,7 @@ namespace evilsqlclient
                                             Console.WriteLine("Login is Sysadmin    : " + CurrentRecord["IsSysadmin"].ToString());
 
                                             // Add to access list
-                                            SQLCommands.MasterAccessList.Rows.Add(CurrentRecord["Instance"].ToString(), CurrentRecord["DomainName"].ToString(), CurrentRecord["ServiceProcessID"].ToString(), CurrentRecord["ServiceName"].ToString(), CurrentRecord["ServiceAccount"].ToString(), CurrentRecord["AuthenticationMode"].ToString(), CurrentRecord["ForcedEncryption"].ToString(), CurrentRecord["Clustered"].ToString(), CurrentRecord["SQLServerMajorVersion"].ToString(), CurrentRecord["SQLServerVersionNumber"].ToString(), CurrentRecord["SQLServerEdition"].ToString(), CurrentRecord["SQLServerServicePack"].ToString(), CurrentRecord["OSArchitecture"].ToString(), CurrentRecord["OsVersionNumber"].ToString(), CurrentRecord["CurrentLogin"].ToString(), CurrentRecord["IsSysadmin"].ToString(), DefaultPassword);
+                                            EvilCommands.MasterAccessList.Rows.Add(CurrentRecord["Instance"].ToString(), CurrentRecord["DomainName"].ToString(), CurrentRecord["ServiceProcessID"].ToString(), CurrentRecord["ServiceName"].ToString(), CurrentRecord["ServiceAccount"].ToString(), CurrentRecord["AuthenticationMode"].ToString(), CurrentRecord["ForcedEncryption"].ToString(), CurrentRecord["Clustered"].ToString(), CurrentRecord["SQLServerMajorVersion"].ToString(), CurrentRecord["SQLServerVersionNumber"].ToString(), CurrentRecord["SQLServerEdition"].ToString(), CurrentRecord["SQLServerServicePack"].ToString(), CurrentRecord["OSArchitecture"].ToString(), CurrentRecord["OsVersionNumber"].ToString(), CurrentRecord["CurrentLogin"].ToString(), CurrentRecord["IsSysadmin"].ToString(), DefaultPassword);
 
                                             // Add to passwords found count 
                                             guessCount = guessCount + 1;
@@ -2203,7 +2179,7 @@ namespace evilsqlclient
 
                     // Add all
                     // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/	
-                    DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                    DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                     DataTable distinctValues = AccessView.ToTable(true, "Instance");
                     if (InstanceAllG.Equals("enabled"))
                     {
@@ -2400,6 +2376,36 @@ namespace evilsqlclient
             // --------------------------------
             public static string RunSQLConsole()
             {
+
+                // Setup columns for discovery table
+                if (MasterDiscoveredList.Columns.Count == 0)
+                {                    
+                    MasterDiscoveredList.Columns.Add("Instance");
+                    MasterDiscoveredList.Columns.Add("SamAccountName");
+                }
+
+                // Setup columns for access table
+                if (MasterAccessList.Columns.Count == 0)
+                {
+                    MasterAccessList.Columns.Add("Instance");
+                    MasterAccessList.Columns.Add("DomainName");
+                    MasterAccessList.Columns.Add("ServiceProcessID");
+                    MasterAccessList.Columns.Add("ServiceName");
+                    MasterAccessList.Columns.Add("ServiceAccount");
+                    MasterAccessList.Columns.Add("AuthenticationMode");
+                    MasterAccessList.Columns.Add("ForcedEncryption");
+                    MasterAccessList.Columns.Add("Clustered");
+                    MasterAccessList.Columns.Add("SQLServerMajorVersion");
+                    MasterAccessList.Columns.Add("SQLServerVersionNumber");
+                    MasterAccessList.Columns.Add("SQLServerEdition");
+                    MasterAccessList.Columns.Add("SQLServerServicePack");
+                    MasterAccessList.Columns.Add("OSArchitecture");
+                    MasterAccessList.Columns.Add("OsVersionNumber");
+                    MasterAccessList.Columns.Add("CurrentLogin");
+                    MasterAccessList.Columns.Add("IsSysadmin");
+                    MasterAccessList.Columns.Add("CurrentLoginPassword");
+                }
+
                 // Read line from the client	
                 Console.Write("SQLCLIENT> ");
                 String MyQuery = Console.ReadLine().ToString();
@@ -2458,7 +2464,7 @@ namespace evilsqlclient
                         ConnectionStringG = CreateConnectionString(InstanceG, UsernameG, PasswordG, UsertypeG, "master");
 
                         // Add instance to discovered list
-                        SQLCommands.MasterDiscoveredList.Rows.Add(InstanceG);
+                        EvilCommands.MasterDiscoveredList.Rows.Add(InstanceG);
 
                         // Unset InstanceAllG
                         InstanceAllG = "disabled";
@@ -2624,13 +2630,13 @@ namespace evilsqlclient
 
                         StringBuilder fileContent = new StringBuilder();
 
-                        foreach (var col in SQLCommands.MasterDiscoveredList.Columns)
+                        foreach (var col in EvilCommands.MasterDiscoveredList.Columns)
                         {
                             fileContent.Append(col.ToString() + ",");
                         }
 
                         fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
-                        foreach (DataRow dr in SQLCommands.MasterDiscoveredList.Rows)
+                        foreach (DataRow dr in EvilCommands.MasterDiscoveredList.Rows)
                         {
                             foreach (var column in dr.ItemArray)
                             {
@@ -2644,7 +2650,7 @@ namespace evilsqlclient
                         {
                             // write file output
                             System.IO.File.WriteAllText(targetPath, fileContent.ToString());
-                            Console.WriteLine("\n" + SQLCommands.MasterDiscoveredList.Rows.Count + " instances were written to " + targetPath);
+                            Console.WriteLine("\n" + EvilCommands.MasterDiscoveredList.Rows.Count + " instances were written to " + targetPath);
                         }
                         catch
                         {
@@ -2660,7 +2666,7 @@ namespace evilsqlclient
                     if (cleardiscoCheck)
                     {
                         // Remove items
-                        SQLCommands.MasterDiscoveredList.Clear();
+                        EvilCommands.MasterDiscoveredList.Clear();
 
                         // Status user
                         Console.Write("\nThe list of discovered instances has been cleared.\n");
@@ -2698,7 +2704,7 @@ namespace evilsqlclient
                         }
 
                         // Unique the list
-                        DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                        DataView AccessView = new DataView(EvilCommands.MasterAccessList);
                         DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");
 
                         StringBuilder fileContent = new StringBuilder();
@@ -2737,7 +2743,7 @@ namespace evilsqlclient
                         {
                             // write file output
                             System.IO.File.WriteAllText(targetPath, fileContent.ToString());
-                            Console.WriteLine("\n" + SQLCommands.MasterAccessList.Rows.Count + " instances were written to " + targetPath);
+                            Console.WriteLine("\n" + EvilCommands.MasterAccessList.Rows.Count + " instances were written to " + targetPath);
                         }
                         catch
                         {
@@ -2753,7 +2759,7 @@ namespace evilsqlclient
                     if (clearaccessCheck)
                     {
                         // Remove items
-                        SQLCommands.MasterAccessList.Clear();
+                        EvilCommands.MasterAccessList.Clear();
 
                         // Status user
                         Console.Write("\nThe list of instances that can be logged into has been cleared.\n");
@@ -3150,7 +3156,7 @@ namespace evilsqlclient
                         // https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/									   
                         if (InstanceAllG.Equals("enabled"))
                         {
-                            foreach (DataRow CurrentRecord in SQLCommands.MasterAccessList.Select())
+                            foreach (DataRow CurrentRecord in EvilCommands.MasterAccessList.Select())
                             {
                                 TargetList.Add(CurrentRecord["Instance"].ToString());
                             }
@@ -3381,7 +3387,7 @@ namespace evilsqlclient
                 }
 
                 // Return to console 
-                SQLCommands.RunSQLConsole();
+                EvilCommands.RunSQLConsole();
                 return null;
             }
         }
