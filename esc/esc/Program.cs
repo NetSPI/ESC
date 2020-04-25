@@ -2207,7 +2207,7 @@ namespace evilsqlclient
             // ------------------------------------------------------------
             // FUNCTION: RUNOSCMD
             // ------------------------------------------------------------
-            public static string RUNOSCMD(string command)
+            public static string RunOsCmd(string command)
             {
                 CheckQueryReady();
                 if (ReadyforQueryG.Equals("yes"))
@@ -2923,16 +2923,21 @@ namespace evilsqlclient
                     bool CheckAccessBool = MyQuery.ToLower().Contains("check access");
                     if (CheckAccessBool)
                     {
+                        // Call function
                         CheckAccess();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
-                    // CHECK DEFAULT PW
-                    // Applications instances configure with application specific defaults 
+                    // CHECK DEFAULT PW FOR KNOWN INSTANCE NAMES
                     bool CheckDefaultPwBool = MyQuery.ToLower().Contains("check defaultpw");
                     if (CheckDefaultPwBool)
                     {
+                        // Call function
                         CheckDefaultAppPw();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2940,7 +2945,10 @@ namespace evilsqlclient
                     bool CheckListDb = MyQuery.ToLower().Contains("list databases");
                     if (CheckListDb)
                     {
+                        // Call function
                         ListDatabase();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2948,7 +2956,10 @@ namespace evilsqlclient
                     bool CheckListTbl = MyQuery.ToLower().Contains("list tables");
                     if (CheckListTbl)
                     {
+                        // Call function
                         ListTable();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2956,7 +2967,10 @@ namespace evilsqlclient
                     bool CheckListServerInfo = MyQuery.ToLower().Contains("list serverinfo");
                     if (CheckListServerInfo)
                     {
+                        // Call function
                         ListServerInfo();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2964,7 +2978,10 @@ namespace evilsqlclient
                     bool CheckRoleMember = MyQuery.ToLower().Contains("list rolemembers");
                     if (CheckRoleMember)
                     {
+                        // Call function
                         ListRoleMembers();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2972,7 +2989,10 @@ namespace evilsqlclient
                     bool CheckListLink = MyQuery.ToLower().Contains("list links");
                     if (CheckListLink)
                     {
+                        // Call function
                         ListLinks();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2980,7 +3000,10 @@ namespace evilsqlclient
                     bool CheckListLogin = MyQuery.ToLower().Contains("list logins");
                     if (CheckListLogin)
                     {
+                        // Call function
                         ListLogins();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2988,7 +3011,10 @@ namespace evilsqlclient
                     bool CheckListPrivs = MyQuery.ToLower().Contains("list privs");
                     if (CheckListPrivs)
                     {
+                        // Call function
                         ListPrivs();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2996,7 +3022,10 @@ namespace evilsqlclient
                     bool CheckLoginAsPwBool = MyQuery.ToLower().Contains("check loginaspw");
                     if (CheckLoginAsPwBool)
                     {
+                        // Call function
                         CheckLoginAsPw();
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -3004,8 +3033,13 @@ namespace evilsqlclient
                     bool CheckUnc = MyQuery.ToLower().Contains("check uncinject ");
                     if (CheckUnc)
                     {
+                        // Parse attacker IP
                         string attackerip = MyQuery.Replace("check uncinject ", "");
+
+                        // Call function
                         CheckUncPathInjection(attackerip);
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -3013,8 +3047,13 @@ namespace evilsqlclient
                     bool CheckOSCmd = MyQuery.ToLower().Contains("run oscmd ");
                     if (CheckOSCmd)
                     {
+                        //  Parse command
                         string command = MyQuery.Replace("run oscmd ", "");
-                        RUNOSCMD(command);
+
+                        // Call function
+                        RunOsCmd(command);
+
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
