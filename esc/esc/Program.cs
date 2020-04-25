@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+Author: Scott Sutherland(@_nullbind), NetSPI 2020
+Version: Version: v1.0
+License: 3-clause BSD
+Description:
+Evil SQL Client(ESC) is an interactive.net SQL console client with enhanced
+server discovery, access, and data exfiltration features. :) Built for execution 
+as a stand alone assembly, or through a alternative mediums for .net code
+execution such as msbuild and PowerShell.While it is a very handy SQL Client 
+for legitimate purposes, it was designed for use during penetration testing and
+red team engagements.
+*/
+
+using System;
 using System.IO;
 using System.Text;
 using System.Data;
@@ -64,6 +77,7 @@ namespace evilsqlclient
     -----------------------------------------------------------------------------------------
      Evil SQL Client (ESC)
      Version: v1.0
+     License: 3-clause BSD 
      Author: Scott Sutherland (@_nullbind), NetSPI 
      A SQL client with enhanced server discovery, access, and data exfiltration features. :)
      Built for execution as a stand alone assembly, or through an alternative medium for 
