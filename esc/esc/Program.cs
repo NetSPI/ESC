@@ -254,8 +254,6 @@ namespace evilsqlclient
                     Console.WriteLine(filePath + " file could not be read.");
                 }
 
-                Console.Write("\nSQLCLIENT> ");
-
                 return null;
             }
 
@@ -298,7 +296,6 @@ namespace evilsqlclient
                 {
                     Console.WriteLine("\n" + bcount + " SQL Servers responded to broadcast requests.");
                 }
-                Console.Write("\nSQLCLIENT> ");
                 return null;
             }
 
@@ -447,7 +444,6 @@ namespace evilsqlclient
                 {
                     Console.WriteLine("Unable to connect to " + MyDC + ".");
                 }
-                Console.Write("\nSQLCLIENT> ");
                 return null;
             }
 
@@ -1385,6 +1381,107 @@ namespace evilsqlclient
                 {
                     Console.WriteLine("\nNo target instances have been defined.");
                 }
+                return null;
+            }
+
+            // ------------------------------------------------------------
+            // FUNCTION: SHOWDISCOVERED
+            // ------------------------------------------------------------
+            public static string ShowDiscovered()
+            {
+                // Display output of data table
+                int linewidth = 50;
+                string columnValue = "";
+                string spaces = "";
+                int tabNumber = 1;
+                DataRow[] currentRows = SQLCommands.MasterDiscoveredList.Select(null, null, DataViewRowState.CurrentRows);
+                if (currentRows.Length > 1)
+                {
+                    // Display columns.
+                    Console.WriteLine("\n");
+                    foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
+                    {
+                        // Pad column
+                        columnValue = column.ColumnName.ToString();
+                        if (columnValue.Length < linewidth)
+                        {
+                            tabNumber = linewidth - columnValue.Length;
+                            spaces = new String(' ', tabNumber);
+                        }
+                        else
+                        {
+                            tabNumber = 1;
+                        }
+
+                        Console.Write(column.ColumnName + spaces);
+                    }
+
+                    Console.WriteLine("\t");
+
+                    // Display rows
+                    foreach (DataRow row in currentRows)
+                    {
+                        foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
+                        {
+                            // Pad column to 50 characters
+                            columnValue = row[column].ToString();
+                            if (columnValue.Length < linewidth)
+                            {
+                                tabNumber = linewidth - columnValue.Length;
+                                spaces = new String(' ', tabNumber);
+                            }
+                            else
+                            {
+                                tabNumber = 1;
+                            }
+
+                            Console.Write(row[column] + spaces);
+                        }
+                        Console.WriteLine("\t");
+                    }                    
+                }
+
+                Console.WriteLine("\n" + SQLCommands.MasterDiscoveredList.Rows.Count + " instances found.");
+                return null;
+            }
+
+            // ------------------------------------------------------------
+            // FUNCTION: SHOWACCESS
+            // ------------------------------------------------------------
+            public static string ShowAccess()
+            {
+                // Unique the list
+                DataView AccessView = new DataView(SQLCommands.MasterAccessList);
+                DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");
+
+                // Display the list 
+                foreach (DataRow CurrentRecord in distinctValues.Select())
+                {
+
+                    // Display SQL Server information
+                    Console.WriteLine("\nInstance             : " + CurrentRecord["Instance"].ToString());
+                    Console.WriteLine("Domain               : " + CurrentRecord["DomainName"].ToString());
+                    Console.WriteLine("Service PID          : " + CurrentRecord["ServiceProcessID"].ToString());
+                    Console.WriteLine("Service Name         : " + CurrentRecord["ServiceName"].ToString());
+                    Console.WriteLine("Service Account      : " + CurrentRecord["ServiceAccount"].ToString());
+                    Console.WriteLine("Authentication Mode  : " + CurrentRecord["AuthenticationMode"].ToString());
+                    Console.WriteLine("Forced Encryption    : " + CurrentRecord["ForcedEncryption"].ToString());
+                    Console.WriteLine("Clustered            : " + CurrentRecord["Clustered"].ToString());
+                    Console.WriteLine("SQL Version          : " + CurrentRecord["SQLServerMajorVersion"].ToString());
+                    Console.WriteLine("SQL Version Number   : " + CurrentRecord["SQLServerVersionNumber"].ToString());
+                    Console.WriteLine("SQL Edition          : " + CurrentRecord["SQLServerEdition"].ToString());
+                    Console.WriteLine("SQL Service Pack     : " + CurrentRecord["SQLServerServicePack"].ToString());
+                    Console.WriteLine("OS Architecture      : " + CurrentRecord["OSArchitecture"].ToString());
+                    Console.WriteLine("OS Version Number    : " + CurrentRecord["OsVersionNumber"].ToString());
+                    Console.WriteLine("Login                : " + CurrentRecord["CurrentLogin"].ToString());
+                    Console.WriteLine("Password             : " + CurrentRecord["CurrentLoginPassword"].ToString());
+                    Console.WriteLine("Login is Sysadmin    : " + CurrentRecord["IsSysadmin"].ToString());
+                }
+
+                // Display count
+                int accessCount = distinctValues.Rows.Count;
+                Console.Write("\n" + accessCount + " instances can be logged into.\n");
+
                 return null;
             }
 
@@ -2475,14 +2572,22 @@ namespace evilsqlclient
                     bool broadcastCheck = MyQuery.ToLower().Contains("discover broadcast");
                     if (broadcastCheck)
                     {
+                        // Call function
                         GetSQLServersBroadCast();
+
+                        // Display console
+                        Console.Write("\nSQLCLIENT> ");
                     }
 
                     // DISCOVER SQL SERVER INSTANCES VIA SERVICE PRINCIPCAL NAMES
                     bool spnCheck = MyQuery.ToLower().Contains("discover domainspn");
                     if (spnCheck)
                     {
+                        // Call function
                         GetSQLServersSpn();
+
+                        // Display console
+                        Console.Write("\nSQLCLIENT> ");
                     }
 
                     // DISCOVER SQL SERVER INSTANCES VIA PROVIDED FILE
@@ -2495,65 +2600,19 @@ namespace evilsqlclient
 
                         // Add instance list to discovered
                         GetSQLServerFile(parts);
+
+                        // Display Console
+                        Console.Write("\nSQLCLIENT> ");
                     }
 
                     // SHOW DISCOVERED SQL SERVER INSTANCES
                     bool showdiscoCheck = MyQuery.ToLower().Contains("show discovered");
                     if (showdiscoCheck)
                     {
-                        // Display output of data table
-                        int linewidth = 50;
-                        string columnValue = "";
-                        string spaces = "";
-                        int tabNumber = 1;
-                        DataRow[] currentRows = SQLCommands.MasterDiscoveredList.Select(null, null, DataViewRowState.CurrentRows);
-                        if (currentRows.Length > 1)
-                        {
-                            // Display columns.
-                            Console.WriteLine("\n");
-                            foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
-                            {
-                                // Pad column
-                                columnValue = column.ColumnName.ToString();
-                                if (columnValue.Length < linewidth)
-                                {
-                                    tabNumber = linewidth - columnValue.Length;
-                                    spaces = new String(' ', tabNumber);
-                                }
-                                else
-                                {
-                                    tabNumber = 1;
-                                }
+                        // Call function
+                        ShowDiscovered();
 
-                                Console.Write(column.ColumnName + spaces);
-                            }
-
-                            Console.WriteLine("\t");
-
-                            // Display rows
-                            foreach (DataRow row in currentRows)
-                            {
-                                foreach (DataColumn column in SQLCommands.MasterDiscoveredList.Columns)
-                                {
-                                    // Pad column to 50 characters
-                                    columnValue = row[column].ToString();
-                                    if (columnValue.Length < linewidth)
-                                    {
-                                        tabNumber = linewidth - columnValue.Length;
-                                        spaces = new String(' ', tabNumber);
-                                    }
-                                    else
-                                    {
-                                        tabNumber = 1;
-                                    }
-
-                                    Console.Write(row[column] + spaces);
-                                }
-                                Console.WriteLine("\t");
-                            }
-                        }
-
-                        Console.WriteLine("\n" + SQLCommands.MasterDiscoveredList.Rows.Count + " instances found.");
+                        // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
 
@@ -2616,38 +2675,9 @@ namespace evilsqlclient
                     bool showaccessCheck = MyQuery.ToLower().Contains("show access");
                     if (showaccessCheck)
                     {
-                        // Unique the list
-                        DataView AccessView = new DataView(SQLCommands.MasterAccessList);
-                        DataTable distinctValues = AccessView.ToTable(true, "Instance", "DomainName", "ServiceProcessID", "ServiceName", "ServiceAccount", "AuthenticationMode", "ForcedEncryption", "Clustered", "SQLServerMajorVersion", "SQLServerVersionNumber", "SQLServerEdition", "SQLServerServicePack", "OSArchitecture", "OsVersionNumber", "CurrentLogin", "CurrentLoginPassword", "IsSysadmin");
-
-                        // Display the list 
-                        foreach (DataRow CurrentRecord in distinctValues.Select())
-                        {
-
-                            // Display SQL Server information
-                            Console.WriteLine("\nInstance             : " + CurrentRecord["Instance"].ToString());
-                            Console.WriteLine("Domain               : " + CurrentRecord["DomainName"].ToString());
-                            Console.WriteLine("Service PID          : " + CurrentRecord["ServiceProcessID"].ToString());
-                            Console.WriteLine("Service Name         : " + CurrentRecord["ServiceName"].ToString());
-                            Console.WriteLine("Service Account      : " + CurrentRecord["ServiceAccount"].ToString());
-                            Console.WriteLine("Authentication Mode  : " + CurrentRecord["AuthenticationMode"].ToString());
-                            Console.WriteLine("Forced Encryption    : " + CurrentRecord["ForcedEncryption"].ToString());
-                            Console.WriteLine("Clustered            : " + CurrentRecord["Clustered"].ToString());
-                            Console.WriteLine("SQL Version          : " + CurrentRecord["SQLServerMajorVersion"].ToString());
-                            Console.WriteLine("SQL Version Number   : " + CurrentRecord["SQLServerVersionNumber"].ToString());
-                            Console.WriteLine("SQL Edition          : " + CurrentRecord["SQLServerEdition"].ToString());
-                            Console.WriteLine("SQL Service Pack     : " + CurrentRecord["SQLServerServicePack"].ToString());
-                            Console.WriteLine("OS Architecture      : " + CurrentRecord["OSArchitecture"].ToString());
-                            Console.WriteLine("OS Version Number    : " + CurrentRecord["OsVersionNumber"].ToString());
-                            Console.WriteLine("Login                : " + CurrentRecord["CurrentLogin"].ToString());
-                            Console.WriteLine("Password             : " + CurrentRecord["CurrentLoginPassword"].ToString());
-                            Console.WriteLine("Login is Sysadmin    : " + CurrentRecord["IsSysadmin"].ToString());
-                        }
-
-                        // Display count
-                        int accessCount = distinctValues.Rows.Count;
-                        Console.Write("\n" + accessCount + " instances can be logged into.\n");
-
+                        //Call function
+                        ShowAccess(); 
+                        
                         // Display console
                         Console.Write("\nSQLCLIENT> ");
                     }
