@@ -9,7 +9,7 @@
 		as a stand alone assembly, or through a alternative mediums for .net code 
 		execution such as msbuild and PowerShell. While it is a very handy SQL Client 
 		for legitimate purposes, it was designed for use during penetration testing and 
-		red team engagements. 
+		red team engagements.
 		
 		Using msbuild.exe to execute .net code through inline tasks is a technique that
 		was developed by Casey Smith. Run one of the msbuild commands below to start 
