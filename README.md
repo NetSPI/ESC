@@ -35,10 +35,9 @@ esc.xml works a little differently and has the entire esc.exe hardcoded as a str
 Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
+ ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
-
-![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
  
 ### Updating esc.xml
