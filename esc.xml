@@ -65,10 +65,8 @@
                             {
                                 stream.Read(bytesBin, 0, compressedBinSize);
                             }
-                        }
-						
-						Console.WriteLine("All good here.");
-                        
+                        }	
+     
                         Assembly assembly = Assembly.Load(bytesBin);
                         assembly.EntryPoint.Invoke(null, new object[] { args });
                         return true;
