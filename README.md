@@ -26,10 +26,11 @@ Below is a list of the currently supported commands.
   
 ### Run via Msbuild.exe
  
-<br><br>
-Evil SQL Client console can be run through msbuild using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or[esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).
+Evil SQL Client console can be run through msbuild using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or[esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).  
 
-esc.proj includes all of the original source code inline. esc.xml has the esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlight in the [GhostBuild](https://github.com/bohops/GhostBuild) project by bohops.
+<br><br>
+
+esc.proj includes all of the original c sharp source code inline. esc.xml work a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  It also worth noting that using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html).
 
 You can explicitly provide the xml/csproj file to msbuild on the command line, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
@@ -40,7 +41,14 @@ You can explicitly provide the xml/csproj file to msbuild on the command line, b
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
  
-Note: Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html).
+### Updating esc.xml
+To update the esc.xml follow the instructions below:
+1. Download and compile esc.exe.
+2. Run Out-Compressdll agains the file.
+`Out-CompressedDll -FilePath esc.exe | out-file output.txt`
+3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
+4. Run teh script.
+`C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
  
  # Supported Commands
 
