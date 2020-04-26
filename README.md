@@ -25,9 +25,13 @@ Below is a list of the currently supported commands.
 2. Run esc.exe.
   
 ### Run via Msbuild.exe
-Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
+ 
 <br><br>
-Run one of the msbuild commands below to start the Evil SQL Client console using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj).  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
+Evil SQL Client console can be run through msbuild using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or[esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).
+
+esc.proj includes all of the original source code inline. esc.xml has the esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlight in the [GhostBuild](https://github.com/bohops/GhostBuild) project by bohops.
+
+You can explicitly provide the xml/csproj file to msbuild on the command line, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
@@ -35,6 +39,8 @@ Run one of the msbuild commands below to start the Evil SQL Client console using
 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
+ 
+Note: Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html).
  
  # Supported Commands
 
