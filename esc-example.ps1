@@ -246,11 +246,9 @@ igUEuMoYUb48ejQ6HhvG4YW441Tl6NH44mpwbGou1RiLRFFRwMDycispGEZKlNtRopC810X7BUp0JcH/
 $DeflatedStream = New-Object IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String($EncodedCompressedFile),[IO.Compression.CompressionMode]::Decompress)
 $UncompressedFileBytes = New-Object Byte[](96768)
 $DeflatedStream.Read($UncompressedFileBytes, 0, 96768) | Out-Null
-[Reflection.Assembly]::Load($UncompressedFileBytes)
+$Assembly = [Reflection.Assembly]::Load($UncompressedFileBytes)
 
-$a = @{}
-
-# Examples of call functions through powershell
+# Direct function call examples
 [evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
 [evilsqlclient.Program+EvilCommands]::MasterDiscoveredList
