@@ -31,6 +31,16 @@ esc.proj includes all of the original c sharp source code inline.
 <strong>esc.xml</strong><br>
 esc.xml works a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  
 
+Updating esc.xml:<br>
+To update the esc.xml follow the instructions below:
+1. Download and compile esc.exe.
+2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) (by @mattifestation) against esc.exe.
+`Out-CompressedDll -FilePath esc.exe | out-file output.txt`
+3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
+4. Replace compressedBinSize with the size generated from Out-CompressDll.
+5. Run the script.
+`C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
+
 <strong>Execution Examples</strong><br>
 Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.  
 
@@ -41,17 +51,7 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
- 
-### Updating esc.xml
-To update the esc.xml follow the instructions below:
-1. Download and compile esc.exe.
-2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) (by @mattifestation) against esc.exe.
-`Out-CompressedDll -FilePath esc.exe | out-file output.txt`
-3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
-4. Replace compressedBinSize with the size generated from Out-CompressDll.
-5. Run the script.
-`C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
- 
+  
  # Supported Commands
 
  ### COMMAND LIST
