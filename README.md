@@ -31,7 +31,7 @@ esc.proj includes all of the original c sharp source code inline.
 <strong>esc.xml</strong><br>
 esc.xml works a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  
 
-<strong>Execution Examples</strong>
+<strong>Execution Examples</strong><br>
 Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
 <br><br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
