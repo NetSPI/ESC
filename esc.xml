@@ -1,6 +1,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <!--
-		Evil SQL Client
+		Evil SQL Client (ESC)
 		Version: Version: v1.0
 		Author: Scott Sutherland (@_nullbind), NetSPI 2020		
 		License: 3-clause BSD 
