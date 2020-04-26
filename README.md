@@ -6,9 +6,6 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced se
  
 Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.
 
-
-
-
 # Execution Options
 Below is a list of the currently supported commands.
 
@@ -24,18 +21,37 @@ Below is a list of the currently supported commands.
 1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
   
-### Run via Msbuild.exe
-Using msbuild.exe to execute .net code through inline tasks is a technique that was developed by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
-<br><br>
-Run one of the msbuild commands below to start the Evil SQL Client console using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj).  You can explicitly provide it as a .xml or .csproj file, but no file name has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.
-<br><br>
+### Download and Run via MSbuild.exe
+ 
+Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
+
+<strong>esc.proj</strong><br>
+esc.proj includes all of the original c sharp source code inline. 
+
+<strong>esc.xml</strong><br>
+esc.xml works a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  
+
+Updating esc.xml:<br>
+To update the esc.xml follow the instructions below:
+1. Download and compile esc.exe.
+2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) (by @mattifestation) against esc.exe.
+`Out-CompressedDll -FilePath esc.exe | out-file output.txt`
+3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
+4. Replace compressedBinSize with the size generated from Out-CompressDll.
+5. Run the script.
+`C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
+
+<strong>Execution Examples</strong><br>
+Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.  
+
+In the examples below, esc.csproj has been renamed to 1.csproj:
+
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
+ ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
-
-![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
- 
+  
  # Supported Commands
 
  ### COMMAND LIST

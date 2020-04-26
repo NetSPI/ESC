@@ -1,8 +1,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<!--
-		Author: Scott Sutherland (@_nullbind), NetSPI 2020
+		Evil SQL Client (ESC)
 		Version: Version: v1.0
-		License: 3-clause BSD 
+		Author: Scott Sutherland (@_nullbind), NetSPI 2020		
+		License: 3-clause BSD
 		
 		Description
 		Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced 
