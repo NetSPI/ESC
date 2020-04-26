@@ -21,7 +21,7 @@ Below is a list of the currently supported commands.
 1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
   
-### Run via Msbuild.exe
+### Download and Run via MSbuild.exe
  
 Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
 
