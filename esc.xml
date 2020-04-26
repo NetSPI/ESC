@@ -25,7 +25,7 @@
 
 		This variation uses reflection to load the esc.exe from a string.  The template for 
 		this technique was based code found in the GhostBuild project 
-		(https://github.com/bohops/GhostBuild/blob/master/SharpWMI.xml) written by @BoHops.  
+		(https://github.com/bohops/GhostBuild/) written by @BoHops.  
 		That project was also based on work by @harmj0y, @mattifestation, @subTee, 
 		and @gentilkiwi.
 -->
