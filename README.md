@@ -23,7 +23,7 @@ Below is a list of the currently supported commands.
   
 ### Run via Msbuild.exe
  
-Evil SQL Client console can be run through msbuild using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or[esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).  
+Evil SQL Client console can be run through msbuild using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).  
 
 esc.proj includes all of the original c sharp source code inline. esc.xml work a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  It also worth noting that using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html).
 
