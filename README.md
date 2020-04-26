@@ -43,7 +43,7 @@ Below are a few script exectuion examples. Msbuild can accept filepaths on the c
 ### Updating esc.xml
 To update the esc.xml follow the instructions below:
 1. Download and compile esc.exe.
-2. Run Out-Compressdll agains the file.
+2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) agains the file.
 `Out-CompressedDll -FilePath esc.exe | out-file output.txt`
 3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
 4. Run teh script.
