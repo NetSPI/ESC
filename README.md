@@ -230,7 +230,7 @@ If "targetall" is enabled the commands below with target all discovered or acces
  
 `check loginaspw` <br>
 `check loginaspw` can be used once authenticated to enumerated all logins and test if they are using the login as the password. <br>
-[Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/) <br>
+[Related Reading](https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/) <br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
  
