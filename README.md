@@ -50,11 +50,11 @@ esc.xml works a little differently and has the entire esc.exe hardcoded as a str
 Updating esc.xml:<br>
 To update the esc.xml follow the instructions below:
 1. Download and compile esc.exe.
-2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) (by @mattifestation) against esc.exe.
+2. Run [Out-Compressdll](https://github.com/PowerShellMafia/PowerSploit/blob/master/ScriptModification/Out-CompressedDll.ps1) (by @mattifestation) against esc.exe.<br>
 `Out-CompressedDll -FilePath esc.exe | out-file output.txt`
 3. Replace the compressedBin string in esc.xml with the "EncodedCompressedFile" string generated from Out-CompressDll.
 4. Replace compressedBinSize with the size generated from Out-CompressDll.
-5. Run the script.
+5. Run the script.<br>
 `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
 
 <strong>Execution Examples</strong><br>
