@@ -11,14 +11,13 @@ Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetS
 
 Below is a summary of what is covered below:
 <Br>
-<a href="#exec">Execution Options</a> <br>
-* <a href="#compileexe">Compile and run via exe</a>
-* <a href="#runexe">Download and run via exe</a>
-* <a href="#runmsbuild">Download and run via msbuild</a>
-* <a href="#runps">Download and run via PowerShell</a>
-<a href="#supportedcommands">Supported Commands</a> <br>
-<a href="#recommendcommands">Recommend Command Sequence</a> <br>
-<a href="#pendingcommands">Pending Commands</a> <br>
+* Execute: <a href="#compileexe">Compile and run via exe</a>
+* Execute: <a href="#runexe">Download and run via exe</a>
+* Execute: <a href="#runmsbuild">Download and run via msbuild</a>
+* Execute: <a href="#runps">Download and run via PowerShell</a>
+* Command: <a href="#supportedcommands">Supported Commands</a> <br>
+* Command: <a href="#recommendcommands">Recommend Command Sequence</a> <br>
+* Command: <a href="#pendingcommands">Pending Commands</a> <br>
 
 
 # Execution Options <a name="exec">
