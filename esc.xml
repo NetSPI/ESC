@@ -23,10 +23,10 @@
 		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.xml
 		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj	
 
-		This variation uses reflection to load the esc.exe from a string.  The template for 
-		this technique was based code found in the GhostBuild project 
+		This .xml file variation uses reflection to load the esc.exe from a string.  
+		The template for this technique was based code found in the GhostBuild project 
 		(https://github.com/bohops/GhostBuild/) written by @BoHops.  
-		That project was also based on work by @harmj0y, @mattifestation, @subTee, 
+		That GhostBuild project was also based on work by @harmj0y, @mattifestation, @subTee, 
 		and @gentilkiwi.
 -->
 <Target Name="esc">
@@ -68,7 +68,10 @@
                             }
                         }	
      
+			// Load the bytes of the assmebly
                         Assembly assembly = Assembly.Load(bytesBin);
+
+			// Call the entry point, in this case main
                         assembly.EntryPoint.Invoke(null, new object[] { args });
                         return true;
                     }
