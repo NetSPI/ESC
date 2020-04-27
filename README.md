@@ -77,7 +77,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 `[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
 3. Alternatively, [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.  It can be loaded using the PowerShell command below.<br>
 `IEX(New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/NetSPI/ESC/master/esc-example.ps1")`
-4. Run desired function.  Examples below.
+4. After the assmbly is loaded you can run the desired function.  Examples below.
 <pre>
 [evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
