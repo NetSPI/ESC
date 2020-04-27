@@ -197,7 +197,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  `show discovered`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
  
-` set targetall enabled`
+` set targetall enabled` <br>
 ` show settings`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-TargetAll.png)<br>
  
