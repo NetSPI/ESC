@@ -1,6 +1,6 @@
 ![evilsqlclient](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-logo.png)<br>
 
-------------------------<br>
+--------------------------<br>
 Evil SQL Client (ESC)<br>
 Version: v1.0 <Br>
 Author: Scott Sutherland (@_nullbind), NetSPI 2020<Br>
