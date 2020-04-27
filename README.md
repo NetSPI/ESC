@@ -61,7 +61,8 @@ Below are some quick instructions for running ESC functions through PowerShell.
 
 1. Download exe.
 2. Open PowerShell and load esc.exe through reflection.<br>
-```[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)```
+```[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)
+```
 3. Run desired function.  Examples below.
 ```[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
