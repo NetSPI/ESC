@@ -16,7 +16,7 @@ Below is a summary of what is covered below:
 * <a href="#runmsbuild">Download and run via msbuild</a>
 * <a href="#runps">Download and run via PowerShell</a>
 * <a href="#supportedcommands">Supported Commands</a> <br>
-* <a href="#recommendcommands">Recommend Command Sequence</a> <br>
+* <a href="#recommendcommands">Common Command Sequences</a> <br>
 * <a href="#pendingcommands">Pending Commands</a> <br>
 * <a href="https://github.com/NetSPI/ESC/tree/master/screenshots">Screenshots</a> <br>
 
@@ -185,7 +185,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
      exit
  </pre>
  
- ### Common Commands <a name="recommendcommands"></a>
+ ### Common Command Sequences <a name="recommendcommands"></a>
 Below are some common command examples to get you started.
 
  <strong>Targeting All Domain Instances</strong><br>
