@@ -239,7 +239,7 @@ You can also run "list" and other post exploitation commands against the target 
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance2.png)<br>
 
 <strong>Query Multiple Targets</strong> <a name="targetmany"> <br>
-Below are commands that can be used to target and query a all accessible SQL Server instances.  <br>
+Below are commands that can be used to target and query all accessible SQL Server instances.  <br>
 1. Import a list of target instances with the `discover file`, `discover domainspn`, or `discover broadcast` commands.<br>
 2. Identify which instances you can log into. <br>
 `check access`<br>
