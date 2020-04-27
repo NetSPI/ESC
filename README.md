@@ -198,10 +198,8 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
  
 ` set targetall enabled`
+` show settings`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-TargetAll.png)<br>
- 
- `show settings`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
  
  `check access`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckAccess.png)<br>
@@ -210,7 +208,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
  `check defaultpw`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
  
  `check loginaspw`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
