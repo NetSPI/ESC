@@ -302,7 +302,7 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
  
 # Pending Commands <a name="pendingcommands"></a>
 * Add discover local 
-* Add discover tcpscan
+* Add discover udpscan
 * Add column find
 * Add domain account enumeration
 * Add link crawl + linkquery + linkoscmd
