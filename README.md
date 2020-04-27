@@ -9,15 +9,16 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced SQ
  
 Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.  At the moment ESC does not have full parody with the PowerUpSQL features, but the most usefull bits are there.
 
+Below is a summary of what is covered below:
 Execution Options <br>
-* Compile and run via exe
-* Download and run via exe
-* Download and run via msbuild
-* Download and run via PowerShell
+* <a href="compileexe">Compile and run via exe</a>
+* <a href="runexe">Download and run via exe</a>
+* <a href="runmsbuild">Download and run via msbuild</a>
+* <a href="runps">Download and run via PowerShell</a>
 
-Supported Commands <br>
-Recommend Command Sequence <br>
-Pending Commands <br>
+<a href="supportedcommands">Supported Commands</a> <br>
+<a href="recommendcommands">Recommend Command Sequence</a> <br>
+<a href="pendingcommands">Pending Commands</a> <br>
 
 
 # Execution Options
@@ -183,7 +184,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
      exit
  </pre>
  
- ### Recommended Command Sequence <a name="recommend"></a>
+ ### Recommended Command Sequence <a name="recommendcommands"></a>
  Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
  <pre>
  discover domainspn 
@@ -200,7 +201,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  export access c:\temp\access.csv instance
  </pre>
  
- # Pending Commands <a name="pendingfeatures"></a>
+ # Pending Commands <a name="pendingcommands"></a>
 * Add discover local 
 * Add column find
 * Add domain account enumeration
