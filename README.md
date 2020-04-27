@@ -30,11 +30,12 @@ Below is a list of options for running the Evil SQl Client (ESC).
 3. Run esc.exe.
 
 ![buildesc](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-1.png) 
-![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png) 
-
+ 
 ### Download Release and Run Exe <a name="runexe"></a>
-1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
+1. Download compiled esc.exe from [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
+
+![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png)
   
 ### Download and Run via MSbuild.exe <a name="runmsbuild"></a>
  
