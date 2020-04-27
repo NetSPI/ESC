@@ -135,11 +135,7 @@
  
     CONFIGURE CREDENTIALS:
      set username username 		User for authenticatiing to SQL Server instances.
- 				    Defaults to current Windows user if no username or password is provided.
-				    Accepts SQL login, local Windows user, or domain user.  
-				    example: sqluser
-				    example: localhost\localuser
-				    example: domain\domainuser
+ 				    Defaults to current Windows user if no username or password is provided, but access SQL Login credentials.
      set password password		Password for the provided username.  
  				    Defaults to current Windows user if no user or password is provided.
  
@@ -2399,10 +2395,10 @@
                     connectionString = "Server=" + instance + ";Database=" + database + ";Integrated Security=SSPI;Connection Timeout=" + TimeOutG + ";";
                 }
 
-                // Create Windows Domain user string
+                // Create Windows Domain user string - CE device only?
                 if (usertype.Equals("WindowsDomainUser"))
-                {
-                    connectionString = "Server=" + instance + ";Database=" + database + ";Integrated Security=SSPI;Connection Timeout=1" + TimeOutG + ";uid=" + username + ";pwd=" + password + ";";
+                {                    
+					connectionString = "Server=" + instance + ";Database=" + database + ";Integrated Security=SSPI;Connection Timeout=" + TimeOutG + ";User ID=\"" + username + "\";Password=\"" + password + "\";";
                 }
 
                 // Create SQL Login string
@@ -3150,7 +3146,7 @@
                         Console.WriteLine("\n------------------------------------");
                         Console.WriteLine("    DATA EXFILTRATION SETTINGS      ");
                         Console.WriteLine("------------------------------------");
-                        Console.WriteLine(" FILE	   : " + ExportFileStateG);
+                        Console.WriteLine(" FILE       : " + ExportFileStateG);
                         Console.WriteLine(" FILEPATH   : " + ExportFilePathG);
                         Console.WriteLine(" ICMP       : " + IcmpStateG);
                         Console.WriteLine(" ICMPIP     : " + IcmpIpG);
@@ -3230,6 +3226,8 @@
                             // Setup connection string
                             // ----------------------------
                             string ConnectionString = CreateConnectionString(instance, UsernameG, PasswordG, UsertypeG, "master");
+							
+							Console.Write("Constrings: " + ConnectionString);
 
                             // ----------------------------
                             // Execute query	
