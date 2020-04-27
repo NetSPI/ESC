@@ -248,6 +248,7 @@ $UncompressedFileBytes = New-Object Byte[](96768)
 $DeflatedStream.Read($UncompressedFileBytes, 0, 96768) | Out-Null
 $Assembly = [Reflection.Assembly]::Load($UncompressedFileBytes)
 
+<#
 # Direct function call examples
 [evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
@@ -259,24 +260,23 @@ $Assembly = [Reflection.Assembly]::Load($UncompressedFileBytes)
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
 
+Note: Need to modify RunSQLConsole() to avoid issues when executing it through PowerShell.
 
-# Main call example - buggy
-
-# Attempt 1 - fail - hangs
+# Attempt 1 
 [evilsqlclient.Program]::Main()
 
-# Attempt 2 - fail
+# Attempt 2 
 [evilsqlclient.Program+EvilCommands]::RunSQLConsole()
 
-# Attempt 3 - fail
+# Attempt 3 
 $stringarray = @()
 $Assembly.EntryPoint.Invoke("",$stringarray)
 
-# Attempt 4 - fail
+# Attempt 4 
 $stringarray = @()
 $MyType = $Assembly.GetType("evilsqlclient.Program")
 $BindingFlags = [Reflection.BindingFlags] "Public,Static"
 $MyMethodInfo = $MyType.GetMethod("Main",$BindingFlags)
 $MyMethodInfo.Invoke("",$stringarray)
 
-# Attempt 5 - use wrapper c sharp program and call that.
+#>
