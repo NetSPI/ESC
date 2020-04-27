@@ -5,7 +5,7 @@ Evil SQL Client (ESC)<br>
 Version: v1.0 <Br>
 Author: Scott Sutherland (@_nullbind), NetSPI 2020<Br>
 <br>
-Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced SQL Server discovery, access, and data exfiltration features.  While ESC can be a handy SQL Client for daily tasks, it was originally designed for targeting SQL Servers during penetration tests and red team engagements.   The intent of the project is to provide an .exe, but also sample files for execution through mediums like msbuild and PowerShell.<br>
+Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced SQL Server discovery, access, and data exfiltration features.  While ESC can be a handy SQL Client for daily tasks, it was originally designed for targeting Active Directory domain joined SQL Servers during penetration tests and red team engagements.   The intent of the project is to provide an .exe, but also sample files for execution through mediums like msbuild and PowerShell.<br>
  
 Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.  At the moment ESC does not have full feature parody with the PowerUpSQL or DAFT, but the most useful bits are there.
 
