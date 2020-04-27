@@ -1,4 +1,4 @@
-![evilsqlclient](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-logo.png) 
+![evilsqlclient](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-logo.png)<br>
 Evil SQL Client (ESC)<br>
 Version: v1.0 <Br>
 Author: Scott Sutherland (@_nullbind), NetSPI <Br>
