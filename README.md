@@ -220,8 +220,8 @@ After discovery, `check access` can be used to determine if the current or provi
 `show access`
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
-<strong>Query Single Target</strong> <a name="targetone">
-Below are commands that can be used to target and query a single SQL Server instance. 
+<strong>Query Single Target</strong> <a name="targetone"> <br>
+Below are commands that can be used to target and query a single SQL Server instance. <br>
 
 First configure ESC to target a single instance.  This will automatically disable the "targetall" setting.<br><br>
 `Set target MSSQLSRV04\SQLSERVER2014` <br>
@@ -238,8 +238,8 @@ Next simply execute your query and end your TSQL with the keyword "go". <br><br>
 You also run "list" and other post exploitation commands against the target instance. <br><br> 
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance2.png)<br>
 
-<strong>Query Multiple Targets</strong> <a name="targetmany">
-Below are commands that can be used to target and query a all accessible SQL Server instances.  
+<strong>Query Multiple Targets</strong> <a name="targetmany"> <br>
+Below are commands that can be used to target and query a all accessible SQL Server instances.  <br>
 1. First importing targets with the `discover file`, `discover domainspn`, or `discover broadcast` commands.
 2. Run `check access` to identify which instance you can log into.
 3. Enable multi instance targeting using the command below.  Once enabled all commands and queries will be run against all accessible SQL Server instances.<br><br>
