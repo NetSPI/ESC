@@ -58,7 +58,7 @@ To update the esc.xml follow the instructions below:
 `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml`
 
 <strong>Execution Examples</strong><br>
-Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.  
+Below are a few execution examples. Msbuild can accept a filepath on the command line, but no filepath is required if only one .csproj file exists in the directory your executing msbuild.exe from.  
 
 In the examples below, esc.csproj has been renamed to 1.csproj:
 <br><br>
