@@ -258,3 +258,25 @@ $Assembly = [Reflection.Assembly]::Load($UncompressedFileBytes)
 [evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
+
+
+# Main call example - buggy
+
+# Attempt 1 - fail - hangs
+[evilsqlclient.Program]::Main()
+
+# Attempt 2 - fail
+[evilsqlclient.Program+EvilCommands]::RunSQLConsole()
+
+# Attempt 3 - fail
+$stringarray = @()
+$Assembly.EntryPoint.Invoke("",$stringarray)
+
+# Attempt 4 - fail
+$stringarray = @()
+$MyType = $Assembly.GetType("evilsqlclient.Program")
+$BindingFlags = [Reflection.BindingFlags] "Public,Static"
+$MyMethodInfo = $MyType.GetMethod("Main",$BindingFlags)
+$MyMethodInfo.Invoke("",$stringarray)
+
+# Attempt 5 - use wrapper c sharp program and call that.
