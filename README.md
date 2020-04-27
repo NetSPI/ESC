@@ -211,7 +211,8 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
  
  `check loginaspw`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2png)<br>
  
  `run oscmd whoami`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
