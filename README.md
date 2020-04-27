@@ -11,14 +11,14 @@ Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetS
 
 Below is a summary of what is covered below:
 <Br>
-* Execute: <a href="#compileexe">Compile and run via exe</a>
-* Execute: <a href="#runexe">Download and run via exe</a>
-* Execute: <a href="#runmsbuild">Download and run via msbuild</a>
-* Execute: <a href="#runps">Download and run via PowerShell</a>
-* Command: <a href="#supportedcommands">Supported Commands</a> <br>
-* Command: <a href="#recommendcommands">Recommend Command Sequence</a> <br>
-* Command: <a href="#pendingcommands">Pending Commands</a> <br>
-
+* Execution: <a href="#compileexe">Compile and run via exe</a>
+* Execution: <a href="#runexe">Download and run via exe</a>
+* Execution: <a href="#runmsbuild">Download and run via msbuild</a>
+* Execution: <a href="#runps">Download and run via PowerShell</a>
+* Commands: <a href="#supportedcommands">Supported Commands</a> <br>
+* Commands: <a href="#recommendcommands">Recommend Command Sequence</a> <br>
+* Commands: <a href="#pendingcommands">Pending Commands</a> <br>
+* Screenshots: <a href="#pendingcommands">Pending Commands</a> <br>
 
 # Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
