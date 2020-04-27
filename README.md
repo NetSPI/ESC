@@ -10,7 +10,8 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced SQ
 Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.  At the moment ESC does not have full parody with the PowerUpSQL features, but the most usefull bits are there.
 
 Below is a summary of what is covered below:
-Execution Options <br>
+<Br>
+<a href="exec">Execution Options</a> <br>
 * <a href="compileexe">Compile and run via exe</a>
 * <a href="runexe">Download and run via exe</a>
 * <a href="runmsbuild">Download and run via msbuild</a>
@@ -21,7 +22,7 @@ Execution Options <br>
 <a href="pendingcommands">Pending Commands</a> <br>
 
 
-# Execution Options
+# Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
 
 ### Compile and Run Exe <a name="compileexe"></a>
