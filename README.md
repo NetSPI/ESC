@@ -24,8 +24,9 @@ Below is a summary of what is covered below:
 Below is a list of options for running the Evil SQl Client (ESC).
 
 ### Compile Source and Run Exe <a name="compileexe"></a>
-1. Open project in Visual Studio from the [esc folder](https://github.com/NetSPI/ESC/tree/master/esc).
-2. Build.
+1. Download the source from  [esc folder](https://github.com/NetSPI/ESC/tree/master/esc).
+1. Open the esc.sln file in Visual Studio.
+2. Select Build -> Build Solution.
 3. Run esc.exe.
 
 ![buildesc](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-1.png) 
