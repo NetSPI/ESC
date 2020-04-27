@@ -223,14 +223,14 @@ After discovery, `check access` can be used to determine if the current or provi
 Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
 If "targetall" is enabled the commands below with target all discovered or accessible instances.  However, if a single instance is provided, then "targetall" will automatically be disabled to ensure only the one instance is targeted.
 
-`check defaultpw`
-`check defaultpw` is run against discovered instances and does not require valid credentials.
-[Related Reading](https://blog.netspi.com/attacking-application-specific-sql-server-instances/)
+`check defaultpw` <br>
+`check defaultpw` is run against discovered instances and does not require valid credentials. <br>
+[Related Reading](https://blog.netspi.com/attacking-application-specific-sql-server-instances/) <br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-CheckDefaultPw.png)<br>
  
-`check loginaspw`
-`check loginaspw` can be used once authenticated to enumerated all logins and test if they are using the login as the password.
-[Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/)
+`check loginaspw` <br>
+`check loginaspw` can be used once authenticated to enumerated all logins and test if they are using the login as the password. <br>
+[Related Reading[(https://blog.netspi.com/hacking-sql-server-procedures-part-4-enumerating-domain-accounts/) <br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw1.png)<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
  
