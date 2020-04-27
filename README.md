@@ -235,21 +235,21 @@ If "targetall" is enabled the commands below with target all discovered or acces
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/LoginAsPw2.png)<br>
  
 <strong>Running OS Commands</strong><br>
-Below is a ESC command for running OS commands on target instances.  It requires sysadmin privileges.
+Below is a ESC command for running OS commands on target instances.  It requires sysadmin privileges.<br>
 
-`run oscmd whoami`
+`run oscmd whoami`<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/RunOsCmd1.png)<br>
  
 <strong>Saving List of Accessible Servers</strong><br>
-The command below can be used to export a list of servers that you can log into.
-`export access c:\temp\access.csv`
+The command below can be used to export a list of servers that you can log into.<br>
+`export access c:\temp\access.csv`<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
  
 <strong>Data Exfiltration Example: Local File</strong><br> <a name="cmdexfiltrate"></a>
 Below is an example of how to exfiltrate data to a local file.
  
-`set file enabled`
+`set file enabled`<br>
 `set filepath c:\temp\output.csv`
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/FileExfil1.png)<br>
  
