@@ -21,8 +21,8 @@ Below is a summary of what is covered in this readme:
 * <a href="#supportedcommands">Supported Commands (HELP)</a> <br>
 * <a href="#cmddiscovery">Discovery Command Examples</a> <br>
 * <a href="#cmdaccess">Access Check Command Examples</a> <br>
-* <a href="#cmdescalation">Privilege Escalation Command Examples</a> <br>
-* <a href="#cmddiscovery">Exfiltration Command Examples</a> <br>
+* <a href="#cmdescalate">Privilege Escalation Command Examples</a> <br>
+* <a href="#cmdexfiltrate">Exfiltration Command Examples</a> <br>
 * <a href="#pendingcommands">Pending Commands</a> <br>
 
 # Execution Options <a name="exec">
