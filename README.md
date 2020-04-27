@@ -187,12 +187,12 @@ Below are some quick instructions for running ESC functions through PowerShell.
  
  ### Recommended Command Sequence <a name="recommendcommands"></a>
  Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
- <pre>
+
  `discover domainspn`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
  
  `discover broadcast`
- ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-DomainSPN.png)<br>
+ ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Broadcast.png)<br>
  
  `show discovered`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
@@ -233,7 +233,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  
  `select @@version`
  ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/IcmpExfil3.png)<br>
- </pre>
+
  
  # Pending Commands <a name="pendingcommands"></a>
 * Add discover local 
