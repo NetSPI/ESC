@@ -120,11 +120,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  
     CONFIGURE CREDENTIALS:
      set username username 		User for authenticatiing to SQL Server instances.
- 				   	Defaults to current Windows user if no username or password is provided.
-				   	Accepts SQL login, local Windows user, or domain user.  
-				    	example: sqluser
-				    	example: localhost\localuser
-				    	example: domain\domainuser
+ 				   	Defaults to current Windows user if no username or password is provided, but access SQL Login credentials.
      set password password		Password for the provided username.  
  				    	Defaults to current Windows user if no user or password is provided.
  
