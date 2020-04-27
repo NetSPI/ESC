@@ -54,7 +54,28 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
-  
+	
+### Download and Run Functions via PowerShell
+Below are some quick instructions for running ESC functions through PowerShell.
+
+1. Download exe.
+2. Open PowerShell and load esc.exe through reflection.
+`[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
+3. Run desired function.  Examples below.
+<pre>
+[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
+[evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
+[evilsqlclient.Program+EvilCommands]::MasterDiscoveredList
+[evilsqlclient.Program+EvilCommands]::InstanceAllG = "enabled"
+[evilsqlclient.Program+EvilCommands]::CheckAccess()
+[evilsqlclient.Program+EvilCommands]::MasterAccessList
+[evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
+[evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
+[evilsqlclient.Program+EvilCommands]::MasterAccessList
+</pre>
+
+[esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.
+
  # Supported Commands
 
  ### COMMAND LIST
