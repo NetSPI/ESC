@@ -240,8 +240,9 @@ You can also run "list" and other post exploitation commands against the target 
 
 <strong>Query Multiple Targets</strong> <a name="targetmany"> <br>
 Below are commands that can be used to target and query a all accessible SQL Server instances.  <br>
-1. First importing targets with the `discover file`, `discover domainspn`, or `discover broadcast` commands.<br>
-2. Run `check access` to identify which instance you can log into.<br>
+1. Import a list of target instances with the `discover file`, `discover domainspn`, or `discover broadcast` commands.<br>
+2. Identify which instances you can log into. <br>
+`check access`<br>
 3. Enable multi instance targeting using the command below.  Once enabled all commands and queries will be run against all accessible SQL Server instances.<br><br>
 `set targetall enabled`<br>
 `show settings`<br>
