@@ -20,6 +20,8 @@ Below is a summary of what is covered in this readme:
 <strong>Command Options</strong><br>
 * <a href="#supportedcommands">Supported Commands (HELP)</a> <br>
 * <a href="#cmddiscovery">Discovery Command Examples</a> <br>
+* <a href="#targetone">Query Single Target</a> <br>
+* <a href="#targetmany">Query Multiple Targets</a> <br>
 * <a href="#cmdaccess">Access Check Command Examples</a> <br>
 * <a href="#cmdescalate">Privilege Escalation Command Examples</a> <br>
 * <a href="#cmdexfiltrate">Exfiltration Command Examples</a> <br>
@@ -204,7 +206,7 @@ Below are a few common methods to identify SQL Server on the network and domain 
 
 `show discovered`
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
- 
+
 <strong>Checking Access to Discovered Instances</strong><br> <a name="cmdaccess"></a>
 After discovery, `check access` can be used to determine if the current or provided credentials can login into the discovered SQL Server instances.
  
@@ -218,6 +220,26 @@ After discovery, `check access` can be used to determine if the current or provi
 `show access`
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
+<strong>Query Single Target</strong>
+Below are commands that can be used to target and query a single SQL Server instance. 
+
+First configure ESC to target a single instance.  This will automatically disable the "targetall" setting.<br><br>
+`Set target MSSQLSRV04\SQLSERVER2014` <br>
+`Set username backdoor_account`<br>
+`Set password backdoor_account`<br>
+`Show settings`<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance1.png)<br>
+
+Next simply execute your query and end your TSQL with the keyword "go". <br><br> 
+`select @@version`<br>
+`go`<br>
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance3.png)<br>
+
+You also run "list" and other post exploitation commands against the target instance. <br><br> 
+![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance2.png)<br>
+
+<strong>Query Multiple Targets</strong>
+Below are commands that can be used to target and query a all accessible SQL Server instances.
 
 <strong>Testing for Common Password Issues</strong><br> <a name="cmdescalate"></a>
 Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
