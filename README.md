@@ -16,7 +16,6 @@ Below is a summary of what is covered below:
 * <a href="#runexe">Download release and run via exe</a>
 * <a href="#runmsbuild">Download and run via msbuild</a>
 * <a href="#runps">Download and run via PowerShell</a>
-<br><br>
 
 <strong>Command Options</strong><br>
 * <a href="#supportedcommands">Supported Commands (HELP)</a> <br>
