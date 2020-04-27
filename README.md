@@ -221,6 +221,7 @@ After discovery, `check access` can be used to determine if the current or provi
 
 <strong>Testing for Common Password Issues</strong><br> <a name="cmdescalate"></a>
 Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
+If "targetall" is enabled the commands below with target all discovered or accessible instances.  However, if a single instance is provided, then "targetall" will automatically be disabled to ensure only the one instance is targeted.
 
 `check defaultpw`
 `check defaultpw` is run against discovered instances and does not require valid credentials.
