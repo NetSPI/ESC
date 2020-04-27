@@ -9,10 +9,20 @@ Evil SQL Client (ESC) is an interactive .net SQL console client with enhanced SQ
  
 Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL/wiki/), [DAFT](https://github.com/NetSPI/DAFT), [SQLC2](https://github.com/NetSPI/SQLC2), and [SQLInjectionWiki](https://sqlwiki.netspi.com/) projects which are also related to SQL Server.  At the moment ESC does not have full parody with the PowerUpSQL features, but the most usefull bits are there.
 
+Execution Options <br>
+* Compile and run via exe
+* Download and run via exe
+* Download and run via msbuild
+* Download and run via PowerShell
+Supported Commands <br>
+Recommend Command Sequence <br>
+Pending Commands <br>
+
+
 # Execution Options
 Below is a list of options for running the Evil SQl Client (ESC).
 
-### Compile and Run Exe
+### Compile and Run Exe <a name="compileexe"></a>
 1. Open project in Visual Studio from the esc folder.
 2. Build.
 3. Run esc.exe.
@@ -20,11 +30,11 @@ Below is a list of options for running the Evil SQl Client (ESC).
 ![buildesc](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png) 
 
-### Download and Run Exe
+### Download and Run Exe <a name="runexe"></a>
 1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
   
-### Download and Run via MSbuild.exe
+### Download and Run via MSbuild.exe <a name="runmsbuild"></a>
  
 Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
 
@@ -56,7 +66,7 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
 	
-### Download and Run Functions via PowerShell
+### Download and Run Functions via PowerShell <a name="runps"></a>
 Below are some quick instructions for running ESC functions through PowerShell.
 
 1. Download esc.exe.
@@ -77,7 +87,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
 </pre>
 
- # Supported Commands
+ # Supported Commands <a name="supportedcommands"></a>
 
  ### COMMAND LIST
  <pre>
@@ -172,7 +182,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
      exit
  </pre>
  
- ### Recommended Command Sequence
+ ### Recommended Command Sequence <a name="recommend"></a>
  Below is a recommended command sequence for those of you who want to quickly discover SQL Server instances and determine which ones you have immediate access to.
  <pre>
  discover domainspn 
@@ -189,7 +199,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  export access c:\temp\access.csv instance
  </pre>
  
- # Pending Features
+ # Pending Commands <a name="pendingfeatures"></a>
 * Add discover local 
 * Add column find
 * Add domain account enumeration
