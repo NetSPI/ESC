@@ -48,7 +48,7 @@ To update the esc.xml follow the instructions below:
 Below are a few script exectuion examples. Msbuild can accept filepaths on the command line, but no filename has to be provided if only one .csproj file exists in the directory your executing msbuild.exe from.  
 
 In the examples below, esc.csproj has been renamed to 1.csproj:
-
+<br>
  ` C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ` <br>
  ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-1.png) 
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.csproj` <Br>
@@ -59,11 +59,10 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
 Below are some quick instructions for running ESC functions through PowerShell.
 
 1. Download exe.
-2. Open PowerShell and load esc.exe through reflection.
+2. Open PowerShell and load esc.exe through reflection.<br>
 `[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
 3. Run desired function.  Examples below.
-<pre>
-[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
+```[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
 [evilsqlclient.Program+EvilCommands]::MasterDiscoveredList
 [evilsqlclient.Program+EvilCommands]::InstanceAllG = "enabled"
@@ -72,7 +71,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
-</pre>
+```
 
 [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.
 
