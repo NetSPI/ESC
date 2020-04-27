@@ -235,7 +235,7 @@ Next simply execute your query and end your TSQL with the keyword "go". <br><br>
 `go`<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance3.png)<br>
 
-You also run "list" and other post exploitation commands against the target instance. <br><br> 
+You can also run "list" and other post exploitation commands against the target instance. <br><br> 
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance2.png)<br>
 
 <strong>Query Multiple Targets</strong> <a name="targetmany"> <br>
