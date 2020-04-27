@@ -71,7 +71,8 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
 [evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
-[evilsqlclient.Program+EvilCommands]::MasterAccessList```
+[evilsqlclient.Program+EvilCommands]::MasterAccessList
+```
 
 [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.
 
