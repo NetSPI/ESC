@@ -63,7 +63,8 @@ Below are some quick instructions for running ESC functions through PowerShell.
 2. Open PowerShell and load esc.exe through reflection.<br>
 `[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
 3. Run desired function.  Examples below.
-```[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
+<pre>
+[evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
 [evilsqlclient.Program+EvilCommands]::MasterDiscoveredList
 [evilsqlclient.Program+EvilCommands]::InstanceAllG = "enabled"
@@ -72,7 +73,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
-```
+</pre>
 
 [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.
 
