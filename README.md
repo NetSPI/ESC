@@ -11,8 +11,8 @@ Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetS
 
 Below is a summary of what is covered below:
 <Br>
-* <a href="#compileexe">Compile and run via exe</a>
-* <a href="#runexe">Download and run via exe</a>
+* <a href="#compileexe">Compile source and run via exe</a>
+* <a href="#runexe">Download release and run via exe</a>
 * <a href="#runmsbuild">Download and run via msbuild</a>
 * <a href="#runps">Download and run via PowerShell</a>
 * <a href="#supportedcommands">Supported Commands</a> <br>
@@ -23,7 +23,7 @@ Below is a summary of what is covered below:
 # Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
 
-### Compile and Run Exe <a name="compileexe"></a>
+### Compile Source and Run Exe <a name="compileexe"></a>
 1. Open project in Visual Studio from the [esc folder](https://github.com/NetSPI/ESC/tree/master/esc).
 2. Build.
 3. Run esc.exe.
@@ -31,7 +31,7 @@ Below is a list of options for running the Evil SQl Client (ESC).
 ![buildesc](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-1.png) 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png) 
 
-### Download and Run Exe <a name="runexe"></a>
+### Download Release and Run Exe <a name="runexe"></a>
 1. Download compiled [release](https://github.com/NetSPI/ESC/releases). 
 2. Run esc.exe.
   
