@@ -11,14 +11,18 @@ Most of ESC's functionality is based on the [PowerUpSQL](https://github.com/NetS
 
 Below is a summary of what is covered below:
 <Br>
+<strong>Execution Options</strong><br>
 * <a href="#compileexe">Compile source and run via exe</a>
 * <a href="#runexe">Download release and run via exe</a>
 * <a href="#runmsbuild">Download and run via msbuild</a>
 * <a href="#runps">Download and run via PowerShell</a>
-* <a href="#supportedcommands">Supported Commands</a> <br>
-* <a href="#recommendcommands">Common Command Sequences</a> <br>
+<strong>Command Options</strong><br>
+* <a href="#supportedcommands">Supported Commands (HELP)</a> <br>
+* <a href="#cmddiscovery">Discovery Command Examples</a> <br>
+* <a href="#cmddiscovery">Access Check Command Examples</a> <br>
+* <a href="#cmdescalation">Privilege Escalation Command Examples</a> <br>
+* <a href="#cmddiscovery">Exfiltration Command Examples</a> <br>
 * <a href="#pendingcommands">Pending Commands</a> <br>
-* <a href="https://github.com/NetSPI/ESC/tree/master/screenshots">Screenshots</a> <br>
 
 # Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
@@ -188,7 +192,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
  ### Common Command Sequences <a name="recommendcommands"></a>
 Below are some common command examples to get you started.
 
-<strong>Discovering SQL Server Instances</strong><br>
+<strong>Discovering SQL Server Instances</strong><br> <a name="cmddiscovery"></a>
 Below are a few common methods to identify SQL Server on the network and domain without port scanning.
  
 `discover domainspn`
@@ -200,7 +204,7 @@ Below are a few common methods to identify SQL Server on the network and domain 
 `show discovered`
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Discovery-Show.png)<br>
  
-<strong>Checking Access to Discovered Instances</strong><br>
+<strong>Checking Access to Discovered Instances</strong><br> <a name="cmdaccess"></a>
 After discovery, `check access` can be used to determine if the current or provided credentials can login into the discovered SQL Server instances.
  
 ` set targetall enabled` <br>
@@ -214,7 +218,7 @@ After discovery, `check access` can be used to determine if the current or provi
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Access-ShowAccess.png)<br>
  
 
-<strong>Testing for Common Password Issues</strong><br>
+<strong>Testing for Common Password Issues</strong><br> <a name="cmdescalate"></a>
 Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
 
 `check defaultpw`
@@ -240,7 +244,7 @@ The command below can be used to export a list of servers that you can log into.
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport1.png)<br>
 ![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/AccessExport2.png)<br>
  
-<strong>Data Exfiltration Example: Local File</strong><br>
+<strong>Data Exfiltration Example: Local File</strong><br> <a name="cmdexfiltrate"></a>
 Below is an example of how to exfiltrate data to a local file.
  
 `set file enabled`
