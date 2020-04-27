@@ -23,7 +23,7 @@ Pending Commands <br>
 Below is a list of options for running the Evil SQl Client (ESC).
 
 ### Compile and Run Exe <a name="compileexe"></a>
-1. Open project in Visual Studio from the esc folder.
+1. Open project in Visual Studio from the [esc folder](https://github.com/NetSPI/ESC/tree/master/esc).
 2. Build.
 3. Run esc.exe.
 
