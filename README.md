@@ -59,10 +59,12 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
 ### Download and Run Functions via PowerShell
 Below are some quick instructions for running ESC functions through PowerShell.
 
-1. Download exe.
+1. Download esc.exe.
 2. Open PowerShell and load esc.exe through reflection.<br>
 `[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
-3. Run desired function.  Examples below.
+3. Alternatively, [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.  It can be loaded using the PowerShell command below.
+`IEX(New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/NetSPI/ESC/master/esc-example.ps1")`
+4. Run desired function.  Examples below.
 <pre>
 [evilsqlclient.Program+EvilCommands]::GetSQLServersBroadCast()
 [evilsqlclient.Program+EvilCommands]::GetSQLServersSpn()
@@ -74,8 +76,6 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
 </pre>
-
-[esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.
 
  # Supported Commands
 
