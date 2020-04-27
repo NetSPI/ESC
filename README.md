@@ -240,16 +240,14 @@ You also run "list" and other post exploitation commands against the target inst
 
 <strong>Query Multiple Targets</strong> <a name="targetmany"> <br>
 Below are commands that can be used to target and query a all accessible SQL Server instances.  <br>
-1. First importing targets with the `discover file`, `discover domainspn`, or `discover broadcast` commands.
-2. Run `check access` to identify which instance you can log into.
+1. First importing targets with the `discover file`, `discover domainspn`, or `discover broadcast` commands.<br>
+2. Run `check access` to identify which instance you can log into.<br>
 3. Enable multi instance targeting using the command below.  Once enabled all commands and queries will be run against all accessible SQL Server instances.<br><br>
 `set targetall enabled`<br>
 `show settings`<br>
-4. Run query as normal.
+4. Run query as normal.<br>
 `select @@version`<br>
 `go`<br>
-	
-![examplescenario](https://github.com/NetSPI/ESC/blob/master/screenshots/Target-Instance2.png)<br>
 
 <strong>Testing for Common Password Issues</strong><br> <a name="cmdescalate"></a>
 Below are some checks for common password issues that can be used to gain initial entry and escalate privileges in some environments.
