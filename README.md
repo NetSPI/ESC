@@ -297,6 +297,7 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 
  
 # Pending Commands <a name="pendingcommands"></a>
+* Add logging w/ timestamps
 * Add discover local 
 * Add discover udpscan
 * Add column find
@@ -307,3 +308,7 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 * Threading
 * Finish data encryption
 * Create python/powershell script to decrypt encrypted exfiltrated data
+
+# Pending fixes
+* Crashes when you just type go
+* Crashes when you type ctrl+c
