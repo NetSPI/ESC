@@ -2370,7 +2370,8 @@ namespace evilsqlclient
                 // Create Windows Domain user string
                 if (usertype.Equals("WindowsDomainUser"))
                 {
-                    connectionString = "Server=" + instance + ";Database=" + database + ";Integrated Security=SSPI;Connection Timeout=1" + TimeOutG + ";uid=" + username + ";pwd=" + password + ";";
+                    // connectionString = "Server=" + instance + ";Database=" + database + ";Integrated Security=SSPI;Connection Timeout=1" + TimeOutG + ";uid=" + username + ";pwd=" + password + ";";
+                    connectionString = "Server=" + instance + ";Database=" + database + ";Persist Security Info=True;Connection Timeout=1" + TimeOutG + ";uid=" + username + ";pwd=" + password + ";";
                 }
 
                 // Create SQL Login string
