@@ -317,5 +317,5 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 Below is a list of people who tested out esc and/or provided .net development guidance.  Thanks for all the help!
 - Alexander Leary (@0xbadjuju) 
 - Ivan Da Silva   (@humble_desser)
-- Josh Weber      () 
+- Josh Weber      
 - Kevin Robertson (@kevin_robertson) 
