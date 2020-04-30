@@ -314,7 +314,8 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 * Crashes when you type ctrl+c
 
 # Thank You
-- Alexander Leary (@0xbadjuju) for developing DAFT and giving me hours of .net guidance :)
-- Ivan Da Silva   (@humble_desser) for testing and feedback
-- Josh Weber      () for testing and feedback
-- Kevin Robertson (@kevin_robertson) for testing / development advice
+Below is a list of people who tested out esc and/or provided .net development guidance.  Thanks for all the help!
+- Alexander Leary (@0xbadjuju) 
+- Ivan Da Silva   (@humble_desser)
+- Josh Weber      () 
+- Kevin Robertson (@kevin_robertson) 
