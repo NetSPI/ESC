@@ -312,3 +312,9 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 # Pending fixes
 * Crashes when you just type go
 * Crashes when you type ctrl+c
+
+# Thank You
+- Alexander Leary (@0xbadjuju) for developing DAFT and giving me hours of .net guidance :)
+- Ivan Da Silva   (@humble_desser) for testing and feedback
+- Josh Weber      () for testing and feedback
+- Kevin Robertson (@kevin_robertson) for testing / development advice
