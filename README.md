@@ -85,7 +85,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 
 1. Download esc.exe.
 2. Open PowerShell and load esc.exe through reflection.<br>
-`[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe)`
+`[System.Reflection.Assembly]::LoadFile("c:\temp\esc.exe")`
 3. Alternatively, [esc-example.ps1](https://github.com/NetSPI/ESC/blob/master/esc-example.ps1) contains a portable example generated using Out-Compressdll.  It can be loaded using the PowerShell command below.<br>
 `IEX(New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/NetSPI/ESC/master/esc-example.ps1")`
 4. After the assmbly is loaded you can run the desired function.  Examples below.
