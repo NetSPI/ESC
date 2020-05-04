@@ -312,6 +312,7 @@ Below is an example of how to exfiltrate data over ICMP with ESC.
 * Threading
 * Finish data encryption
 * Create python/powershell script to decrypt encrypted exfiltrated data
+* Rewrite query function to be more flexible
 
 # Pending fixes
 * Crashes when you just type go
