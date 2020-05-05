@@ -29,6 +29,7 @@ Below is a summary of what is covered in this readme:
 
 <strong>Detections</strong>
 * [MSBuild](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1127/T1127.md)
+* [MSBuild](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md)
 * [SQL Server](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/Audit%20Command%20Execution%20Template.sql)
 
 # Execution Options <a name="exec">
