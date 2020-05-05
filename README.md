@@ -29,9 +29,9 @@ Below is a summary of what is covered in this readme:
 
 <strong>Detections</strong>
 * [MSBuild Tests](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1127/T1127.md)
-* [MSBuild Detections - Resource 1](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md)
-* [MSBuild Detections - Resource 2](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
-* [SQL Server](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/Audit%20Command%20Execution%20Template.sql)
+* [MSBuild Detection - Resource 1](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md)
+* [MSBuild Detection - Resource 2](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
+* [SQL Server Detection - Resource 1](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/Audit%20Command%20Execution%20Template.sql)
 
 # Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
