@@ -28,8 +28,9 @@ Below is a summary of what is covered in this readme:
 * <a href="#pendingcommands">Pending Commands</a> <br>
 
 <strong>Detections</strong>
-* [MSBuild](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1127/T1127.md)
-* [MSBuild](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md)
+* [MSBuild Tests](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1127/T1127.md)
+* [MSBuild Detections - Resource 1](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md)
+* [MSBuild Detections - Resource 2](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
 * [SQL Server](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/Audit%20Command%20Execution%20Template.sql)
 
 # Execution Options <a name="exec">
@@ -51,7 +52,7 @@ Below is a list of options for running the Evil SQl Client (ESC).
   
 ### Download and Run via MSbuild.exe <a name="runmsbuild"></a>
  
-Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. Related material can be found [here](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html). 
+Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. 
 
 <strong>esc.proj</strong><br>
 esc.proj includes all of the original Evil SQL Client (ESC) C Sharp source code inline. 
