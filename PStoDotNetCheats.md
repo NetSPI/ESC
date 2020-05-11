@@ -24,6 +24,7 @@ Get-ChildItem -recurse "D:\Documents\Visual Studio 2010\Projects\AesSample\AesSa
 <pre>
 #Load all .NET binaries in the folder
 Get-ChildItem -recurse "D:\Documents\Visual Studio 2010\Projects\AesSample\AesSample\bin\Debug\"|Where-Object {($_.Extension -EQ ".dll") -or ($_.Extension -eq ".exe")} | ForEach-Object { $AssemblyName=$_.FullName; Try {[Reflection.Assembly]::LoadFile($AssemblyName)} Catch{ "***ERROR*** Not .NET assembly: " + $AssemblyName}}
+
 #Only retrieve static private method
 $BindingFlags= [Reflection.BindingFlags] "NonPublic,Static"
  
@@ -37,8 +38,13 @@ $PrivateMethod.Invoke($null,"8E3C5A3088CEA26B634CFDA09D13A7DB")
 ### Example: Public Static Class: Call private static method (function overloading) <a name="3"></a>
 
 <pre>
+
 #Load all .NET binaries in the folder
 Get-ChildItem -recurse "D:\Documents\Visual Studio 2010\Projects\AesSample\AesSample\bin\Debug\"|Where-Object {($_.Extension -EQ ".dll") -or ($_.Extension -eq ".exe")} | ForEach-Object { $AssemblyName=$_.FullName; Try {[Reflection.Assembly]::LoadFile($AssemblyName)} Catch{ "***ERROR*** Not .NET assembly: " + $AssemblyName}}
+
+#Only retrieve static private method
+$BindingFlags= [Reflection.BindingFlags] "NonPublic,Static"
+
 #Search for private method based on name
 $PrivateMethods = [AesSample.AesLibStatic].GetMethods($bindingFlags) | Where-Object Name -eq DecryptStringPrivate
 
@@ -76,9 +82,11 @@ $AesSample.DecryptString("8E3C5A3088CEA26B634CFDA09D13A7DB")
 ### Example: Public class: Call nonstatic private method (function overloading) <a name="5"></a>
 
 <pre>
-#Load all .NET binaries in the folder
+
+# Load all .NET binaries in the folder
 Get-ChildItem -recurse "D:\Documents\Visual Studio 2010\Projects\AesSample\AesSample\bin\Debug\"|Where-Object {($_.Extension -EQ ".dll") -or ($_.Extension -eq ".exe")} | ForEach-Object { $AssemblyName=$_.FullName; Try {[Reflection.Assembly]::LoadFile($AssemblyName)} Catch{ "***ERROR*** Not .NET assembly: " + $AssemblyName}}
-#Call constructor
+
+# Call constructor
 $Instance= New-Object "AesSample.AesLib" ("a","b")
  
 # Find private nonstatic method. If you want to invoke static private method, replace Instance with Static
@@ -98,5 +106,4 @@ ForEach-Object{
     $PrivateMethod.Invoke($Instance,$Params)
   }
  }
-
- </pre>
+</pre>
