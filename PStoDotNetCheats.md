@@ -1,7 +1,7 @@
 ## PowerShell Reflection Cheatsheet
 This is a cheat sheet that shows how to call .Net assembly methods from PowerShell.  All examples have been taken from Khai Tran's [blog](https://blog.netspi.com/using-powershell-and-reflection-api-to-invoke-methods-from-net-assemblies/).
 
-Below is a summary of what is covered:
+Below are a few code examples that illustrate how to deal with different scenarios:
 
 * <a href="#1">Public Static Class: Call public static method</a>
 * <a href="#2">Public Static Class: Call private static method</a>
@@ -9,7 +9,7 @@ Below is a summary of what is covered:
 * <a href="#4">Public Class: Call nonstatic public method</a>
 * <a href="#5">Public Class: Call nonstatic private method (function overloading)</a>
 
-### Example: Public Static Class: Call public static method <a name="1"></a>
+### Public Static Class: Call public static method <a name="1"></a>
 
 <pre>
 # Load all .NET binaries in the folder
@@ -19,7 +19,7 @@ Get-ChildItem -recurse "D:\Documents\Visual Studio 2010\Projects\AesSample\AesSa
 [AesSample.AesLibStatic]::DecryptString("8E3C5A3088CEA26B634CFDA09D13A7DB")
 </pre>
 
-### Example: Public Static Class: Call private static method <a name="2"></a>
+### Public Static Class: Call private static method <a name="2"></a>
 
 <pre>
 #Load all .NET binaries in the folder
@@ -35,7 +35,7 @@ $PrivateMethod = [AesSample.AesLibStatic].GetMethod("DecryptStringSecret",$bindi
 $PrivateMethod.Invoke($null,"8E3C5A3088CEA26B634CFDA09D13A7DB")
 </pre>
 
-### Example: Public Static Class: Call private static method (function overloading) <a name="3"></a>
+### Public Static Class: Call private static method (function overloading) <a name="3"></a>
 
 <pre>
 
@@ -66,7 +66,7 @@ $PrivateMethods | ForEach-Object{
 }
 </pre>
 
-### Example: Public class: Call nonstatic public method <a name="4"></a>
+### Public class: Call nonstatic public method <a name="4"></a>
 
 <pre>
 #Load all .NET binaries in the folder
@@ -79,7 +79,7 @@ $AesSample= New-Object "AesSample.AesLib"
 $AesSample.DecryptString("8E3C5A3088CEA26B634CFDA09D13A7DB")
 </pre>
 
-### Example: Public class: Call nonstatic private method (function overloading) <a name="5"></a>
+### Public class: Call nonstatic private method (function overloading) <a name="5"></a>
 
 <pre>
 
