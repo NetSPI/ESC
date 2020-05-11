@@ -1,5 +1,5 @@
 ## PowerShell Reflection Cheatsheet
-This is a cheat sheet for calling .Net assembly methods from PowerShell taken from Khai Tran's [blog](https://blog.netspi.com/using-powershell-and-reflection-api-to-invoke-methods-from-net-assemblies/).
+This is a cheat sheet that shows how to call .Net assembly methods from PowerShell.  All examples have been taken from Khai Tran's [blog](https://blog.netspi.com/using-powershell-and-reflection-api-to-invoke-methods-from-net-assemblies/).
 
 Below is a summary of what is covered:
 
