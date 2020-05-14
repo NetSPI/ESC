@@ -157,7 +157,7 @@ C:\windows\system32\UevTemplateConfigItemGenerator.exe
 C:\windows\system32\Vmw.exe
 </pre>
 
-![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack.png) 
+![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack3.png) 
 
 Using the steps below ESC can also be executed using cscript.exe once the tasks.dll has been written to disk.  Once again, based on Casey Smith's templates.
 
