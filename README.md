@@ -14,8 +14,9 @@ Below is a summary of what is covered in this readme:
 <strong>Execution Options</strong><br>
 * <a href="#compileexe">Compile source and run via exe</a>
 * <a href="#runexe">Download release and run via exe</a>
-* <a href="#runmsbuild">Download and run via msbuild</a>
-* <a href="#runps">Download and run via PowerShell</a>
+* <a href="#runmsbuild">Download and run through MSBuild</a>
+* <a href="#runps">Download and run through PowerShell</a>
+* <a href="#runappdomain">Download and run through AppDomain Hijacking</a>
 
 <strong>Command Options</strong><br>
 * <a href="#supportedcommands">Supported Commands (HELP)</a> <br>
@@ -103,7 +104,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
 </pre>
 
-### Download and Run through AppDomain Hijacking<a name="runmsbuild"></a>
+### Download and Run through AppDomain Hijacking<a name="runappdomain"></a>
 Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's DerbyCon presentation ".Net Manifesto - Win Friends and Influence the Loader" to load ESC through c:\windows\system32\ applications that import mscoree.dll. 
 
 1. Compile this dll.
