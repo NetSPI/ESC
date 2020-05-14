@@ -157,6 +157,8 @@ C:\windows\system32\UevTemplateConfigItemGenerator.exe
 C:\windows\system32\Vmw.exe
 </pre>
 
+![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack.png) 
+
  # Supported Commands <a name="supportedcommands"></a>
 
  ### COMMAND LIST
