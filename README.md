@@ -159,6 +159,8 @@ C:\windows\system32\Vmw.exe
 
 ![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack.png) 
 
+Note: Detections could include monitoring for tasks.dll being written to C:\Windows\System32\Tasks\tasks.dll and C:\Windows\SysWow64\Tasks\tasks.dll. Also, potentially the execution of the commands above without/with parameters.
+
  # Supported Commands <a name="supportedcommands"></a>
 
  ### COMMAND LIST
