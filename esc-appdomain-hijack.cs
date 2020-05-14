@@ -19,6 +19,7 @@
 		written by @BoHops.  The GhostBuild project was also based on work by @harmj0y, 
 		@mattifestation, @subTee, and @gentilkiwi.
 		
+		Execution Instructions
 		Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's
 		DerbyCon presentation ".Net Manifesto - Win Friends and Influence the Loader" to load ESC 
 		through c:\windows\system32\ applications that import mscoree.dll. 
@@ -68,7 +69,7 @@
 			
 			scriptrunner.exe
 			
-		Potential Detections
+		Potential Detections		
 		1.	Files: tasks.dll being written to C:\Windows\System32\Tasks\tasks.dll and C:\Windows\SysWow64\Tasks\tasks.dll. 
 		2.	Commands: Example executables from step 4 running without parameters.  I haven't done any real research though so who knows on that one.
 */
