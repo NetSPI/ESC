@@ -159,7 +159,7 @@ C:\windows\system32\Vmw.exe
 
 ![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack.png) 
 
-Using the steps below ESC can also be executed through csript once the tasks.dll has been written to disk.  Once again, based on Casey Smith's templates.
+Using the steps below ESC can also be executed using cscript.exe once the tasks.dll has been written to disk.  Once again, based on Casey Smith's templates.
 
 1. Create the file trigger.js wiht the content below.
 <pre>
