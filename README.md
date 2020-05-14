@@ -105,7 +105,7 @@ Below are some quick instructions for running ESC functions through PowerShell.
 </pre>
 
 ### Download and Run through AppDomain Hijacking<a name="runappdomain"></a>
-Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's DerbyCon presentation ".Net Manifesto - Win Friends and Influence the Loader" to load ESC through c:\windows\system32\ applications that import mscoree.dll. 
+Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's DerbyCon presentation [".Net Manifesto - Win Friends and Influence the Loader"](https://www.youtube.com/watch?v=BIJ2L_rM9Gc) to load ESC through c:\windows\system32\ applications that import mscoree.dll. 
 
 1. Compile [esc-appdomain-hijack.cs](https://github.com/NetSPI/ESC/blob/master/esc-appdomain-hijack.cs) to tasks.dll. 
 <pre>
