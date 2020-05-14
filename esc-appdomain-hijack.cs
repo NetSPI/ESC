@@ -21,11 +21,11 @@
 		
 		Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's
 		DerbyCon presentation ".Net Manifesto - Win Friends and Influence the Loader" to load ESC 
-    through c:\windows\system32\ applications that import mscoree.dll. 
+		through c:\windows\system32\ applications that import mscoree.dll. 
 		
-		1. 	Compile this dll.
+		1. 	Compile this to tasks.dll.
 
-			C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.Reflection.dll /r:Microsoft.Build.Framework.dll /r:Microsoft.Build.Utilities.v4.0.dll /r:System.IO.Compression.dll /r:System.Runtime.InteropServices.dll /r:System.EnterpriseServices.dll /target:library /out:tasks.dll tasks.cs			
+			C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.Reflection.dll /r:Microsoft.Build.Framework.dll /r:Microsoft.Build.Utilities.v4.0.dll /r:System.IO.Compression.dll /r:System.Runtime.InteropServices.dll /r:System.EnterpriseServices.dll /target:library /out:tasks.dll esc-appdomain-hijack.cs			
 
 		2. 	Update environment variables. Note: process, user, or system could be targetd.
 	
