@@ -1,5 +1,5 @@
 /*
-    AppDomain Hijacking Execution Method
+		AppDomain Hijacking Execution Method
   
 		Evil SQL Client (ESC)
 		Version: Version: v1.0
