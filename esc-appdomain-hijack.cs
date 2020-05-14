@@ -26,7 +26,7 @@
 		
 		1. 	Compile this to tasks.dll.
 
-			C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.Reflection.dll /r:Microsoft.Build.Framework.dll /r:Microsoft.Build.Utilities.v4.0.dll /r:System.IO.Compression.dll /r:System.Runtime.InteropServices.dll /r:System.EnterpriseServices.dll /target:library /out:tasks.dll esc-appdomain-hijack.cs			
+			C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /r:System.Reflection.dll /r:System.IO.Compression.dll /r:System.Runtime.InteropServices.dll /r:System.EnterpriseServices.dll /target:library /out:tasks.dll esc-appdomain-hijack.cs			
 
 		2. 	Update environment variables. Note: process, user, or system could be targetd.
 	
