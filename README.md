@@ -159,6 +159,10 @@ C:\windows\system32\Vmw.exe
 
 ![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack3.png) 
 
+This can also be done by copying the affected EXE and the tasks.dll to the directory writable by the user using the process illustrated below.  To detect those scenarios, consider monitoring for files being copied from system directories. However, note that attackers may be able to identify other affected EXEs on the system using the same discovery technique listed above.
+
+![runappdomain](https://github.com/NetSPI/ESC/blob/master/screenshots/esc-execute-via-appdomain-hijack4.png) 
+
 Using the steps below ESC can also be executed using cscript.exe once the tasks.dll has been written to disk.  Once again, based on Casey Smith's templates.
 
 1. Create the file trigger.js with the content below.
