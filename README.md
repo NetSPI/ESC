@@ -56,10 +56,10 @@ Below is a list of options for running the Evil SQl Client (ESC).
 Evil SQL Client console can be run through msbuild inline tasks using the [esc.csproj file](https://github.com/NetSPI/ESC/blob/master/esc.csproj) or [esc.xml file](https://github.com/NetSPI/ESC/blob/master/esc.xml).<br>  Using msbuild.exe to execute .net code through inline tasks is a technique that was researched and popularized by Casey Smith. 
 
 <strong>esc.proj</strong><br>
-esc.proj includes all of the original Evil SQL Client (ESC) C Sharp source code inline. 
+esc.proj includes all of the original Evil SQL Client (ESC) C Sharp source code inline. The inline .NET source code technique used in this variation seems to do a better job of avoiding detection than embedding the exe and calling through reflection.
 
 <strong>esc.xml</strong><br>
-esc.xml works a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique recently highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  
+esc.xml works a little differently and has the entire esc.exe hardcoded as a string which is then loaded through reflection using a technique highlighted in the [GhostBuild](https://github.com/bohops/GhostBuild) project by @bohops.  I should note that Windows Defender is pretty good at identifying this exe wrapping technique out of the box.
 
 Updating esc.xml:<br>
 To update the esc.xml follow the instructions below:
