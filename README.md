@@ -32,7 +32,7 @@ Below is a summary of what is covered in this readme:
 * MSBuild Tests: [Resource1](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1127/T1127.md)
 * MSBuild Detection: [Resource1](https://github.com/MHaggis/CBR-Queries/blob/master/msbuild.md) | [Resource2](https://bleepsec.com/2018/11/26/using-attack-atomic-red-team-part1.html)
 * SQL Server Detection: [Resource1](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/Audit%20Command%20Execution%20Template.sql)
-* AppDomain Detection - Consider monitoring for tasks.dll being written to c:\Windows\SysWow64\Tasks\ and c:\Windows\System32\Tasks\, or affected files being copied out of system and program file directories.
+* AppDomain Detection - Consider monitoring for tasks.dll being written to c:\Windows\SysWow64\Tasks\ and c:\Windows\System32\Tasks\, affected files being copied out of system and program file directories, or the "APPDOMAIN_MANAGER_TYPE" and "COMPLUS_Version" environmental variables being set. Disclaimer: I haven't tested these detection on scale so I dont know how much white noise they will produce.
 
 # Execution Options <a name="exec">
 Below is a list of options for running the Evil SQl Client (ESC).
