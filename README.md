@@ -105,10 +105,13 @@ Below are some quick instructions for running ESC functions through PowerShell.
 </pre>
 
 ### Download and Run through AppDomain Hijacking<a name="runappdomain"></a>
-Application domains provide an isolation boundary for security, reliability, and versioning, and for unloading .NET assemblies. Application domains are typically created by runtime hosts, which are responsible for bootstrapping the common language runtime before an application is run.  A typical application loads several assemblies into an application domain before the code they contain can be executed.   The default AppDomainManager can be replaced by setting the APPDOMAIN_MANAGER_ASM and APPDOMAIN_MANAGER_TYPE environmental variables. This provides users with the means load and execute .NET code from custom assemblies prior to the execution of the intended application, but within their process and thread. 
+Application domains provide an isolation boundary for security, reliability, and versioning, and for unloading .NET assemblies. Application domains are typically created by runtime hosts, which are responsible for bootstrapping the common language runtime before an application is run.  A typical application loads several assemblies into an application domain before the code they contain can be executed.   The default AppDomainManager can be replaced by setting the APPDOMAIN_MANAGER_ASM and APPDOMAIN_MANAGER_TYPE environmental variables. This provides users with the means load and execute .NET code from custom assemblies prior to the execution of the intended application, but within their process and thread.  
+
 Reference: https://docs.microsoft.com/en-us/dotnet/framework/app-domains/application-domains  
 
-Below are instructions for using the AppDomain hijacking technique shared in Casey Smith's DerbyCon presentation [".Net Manifesto - Win Friends and Influence the Loader"](https://www.youtube.com/watch?v=BIJ2L_rM9Gc) to load ESC through c:\windows\system32\ applications that import mscoree.dll. 
+It is possible to leverage that functionality and default write access to the c:\windows\system32\tasks\ directory to execute arbitrary .NET code through c:\windows\system32\*.exe assemblies that import mscoree.dll. This technique was originally shared during Casey Smith's DerbyCon presentation [".Net Manifesto - Win Friends and Influence the Loader"](https://www.youtube.com/watch?v=BIJ2L_rM9Gc).
+
+Below are instructions for executing ESC using this method.
 
 1. Compile [esc-appdomain-hijack.cs](https://github.com/NetSPI/ESC/blob/master/esc-appdomain-hijack.cs) to tasks.dll. 
 <pre>
