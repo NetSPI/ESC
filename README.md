@@ -109,7 +109,7 @@ Application domains provide an isolation boundary for security, reliability, and
 
 Reference: https://docs.microsoft.com/en-us/dotnet/framework/app-domains/application-domains  
 
-It is possible to leverage that functionality and default write access to the c:\windows\system32\tasks\ directory to execute arbitrary .NET code through c:\windows\system32\\*.exe and c:\windows\SysWow64\\*.exe assemblies that import mscoree.dll. This technique was originally shared during Casey Smith's DerbyCon presentation [".Net Manifesto - Win Friends and Influence the Loader"](https://www.youtube.com/watch?v=BIJ2L_rM9Gc).
+It is possible to leverage that functionality and default write access to the c:\windows\system32\tasks\ directory to execute arbitrary .NET code through c:\windows\system32\ and c:\windows\SysWow64\ assemblies that import mscoree.dll. This technique was originally shared during Casey Smith's DerbyCon presentation [".Net Manifesto - Win Friends and Influence the Loader"](https://www.youtube.com/watch?v=BIJ2L_rM9Gc).
 
 Below are instructions for executing ESC using this method.
 
