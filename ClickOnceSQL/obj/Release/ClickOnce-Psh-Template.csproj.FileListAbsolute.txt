@@ -1,0 +1,13 @@
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ClickOnce-Psh-Template.csprojAssemblyReference.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ClickOnce-Psh-Template.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\System.Management.Automation.dll
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ClickOnce-Psh-Template.csproj.CopyComplete

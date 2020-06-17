@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\127.0.0.1\c%24\temp\ClickOnceSQL\|\\127.0.0.1\c%24\users\Public\|\\127.0.0.1\c%24\temp\|C:\temp\|C:\Pentest\detective\</PublishUrlHistory>
+    <InstallUrlHistory>\\127.0.0.1\c%24\temp\ClickOnceSQL\|\\127.0.0.1\c%24\users\Public\|\\127.0.0.1\c%24\temp\|http://127.0.0.1/|http://wite.com/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

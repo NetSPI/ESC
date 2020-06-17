@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickOnceSQL", "ClickOnceSQL.csproj", "{06260CE5-61F4-4B81-AD83-7D01C3B37921}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = ClickOnce Evil SQL Client
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06260CE5-61F4-4B81-AD83-7D01C3B37921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06260CE5-61F4-4B81-AD83-7D01C3B37921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06260CE5-61F4-4B81-AD83-7D01C3B37921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06260CE5-61F4-4B81-AD83-7D01C3B37921}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C5B9345-ACD4-443D-A2EA-3096596AE629}
+	EndGlobalSection
+EndGlobal

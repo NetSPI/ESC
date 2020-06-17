@@ -1,0 +1,13 @@
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\ConsoleApplication2.exe.config
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\ConsoleApplication2.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Debug\System.Management.Automation.dll
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ClickOnceSQL.csprojAssemblyReference.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ClickOnceSQL.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ClickOnceSQL.csproj.CopyComplete
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Debug\ConsoleApplication2.pdb

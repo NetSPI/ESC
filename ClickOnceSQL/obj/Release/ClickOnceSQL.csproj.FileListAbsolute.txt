@@ -1,0 +1,53 @@
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\bin\Release\System.Management.Automation.dll
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ClickOnceSQL.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ClickOnceSQL.csproj.CopyComplete
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\System.Management.Automation.dll
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CopyComplete
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.config
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\ClickOnceSQL.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\ClickOnceSQL.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\bin\Release\ClickOnceSQL.pdb
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.csprojAssemblyReference.cache
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.exe.manifest
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.application
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.exe
+C:\Users\ssutherland\Downloads\ClickOnce-PowerShell-master\ClickOnce-PowerShell-master\Visual Studio Project\ClickOnceSQL\obj\Release\ClickOnceSQL.pdb
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.config
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.manifest
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\ClickOnceSQL.application
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\ClickOnceSQL.exe
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\ClickOnceSQL.pdb
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\System.Management.Automation.dll
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.csprojAssemblyReference.cache
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CoreCompileInputs.cache
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.exe.manifest
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.application
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CopyComplete
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.exe
+C:\Users\ssutherland\Desktop\ClickOnceSQL\obj\Release\ClickOnceSQL.pdb
+C:\Users\ssutherland\Desktop\ClickOnceSQL\bin\Release\App.config
+C:\temp\ClickOnceSQL\bin\Release\App.config
+C:\temp\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.config
+C:\temp\ClickOnceSQL\bin\Release\ClickOnceSQL.exe.manifest
+C:\temp\ClickOnceSQL\bin\Release\ClickOnceSQL.application
+C:\temp\ClickOnceSQL\bin\Release\ClickOnceSQL.exe
+C:\temp\ClickOnceSQL\bin\Release\ClickOnceSQL.pdb
+C:\temp\ClickOnceSQL\bin\Release\System.Management.Automation.dll
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.csprojAssemblyReference.cache
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CoreCompileInputs.cache
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.exe.manifest
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.application
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.csproj.CopyComplete
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.exe
+C:\temp\ClickOnceSQL\obj\Release\ClickOnceSQL.pdb
