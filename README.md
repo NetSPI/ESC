@@ -188,8 +188,12 @@ cscript trigger.js
 
 Note: Detections could include monitoring for tasks.dll being written to C:\Windows\System32\Tasks\tasks.dll and C:\Windows\SysWow64\Tasks\tasks.dll. Also, potentially the execution of the commands above without/with parameters.
 
-ESC can also be executed through AppDomain hijacking using a configuration file.  Create a configuration file in the same folder as the target binary. Name it after the target assembly, but append .config to the file name. Example: scriptrunner.exe.config.  
-Below is sample XML for the config file.
+ESC can also be executed through AppDomain hijacking using a configuration file.  
+
+1. Create a configuration file in same folder as the target assembly, and name if after the target binary.  Example below.
+<pre>ScriptRunner.exe.config</pre>
+
+2. Below is sample XML for the config file.
 
 ```xml
 <configuration>
@@ -201,7 +205,9 @@ Below is sample XML for the config file.
 </runtime>
 </configuration>
 ```
+3. Run the target binary.
 
+<pre>ScriptRunner.exe</pre>
 
  # Supported Commands <a name="supportedcommands"></a>
 
