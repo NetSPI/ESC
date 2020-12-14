@@ -190,7 +190,7 @@ Note: Detections could include monitoring for tasks.dll being written to C:\Wind
 
 ESC can also be executed through AppDomain hijacking using a configuration file.  
 
-1. Create a configuration file in same folder as the target assembly, and name if after the target binary.  Example below.
+1. Create a configuration file in same folder as the target assembly, and name it after the target binary.  Example below.
 <pre>ScriptRunner.exe.config</pre>
 
 2. Below is sample XML for the config file.
