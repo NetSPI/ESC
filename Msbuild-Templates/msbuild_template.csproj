@@ -1,0 +1,45 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>     
+      <Code Type="Class" Language="cs">
+        <![CDATA[				
+            using System;
+	      using System.IO;
+            using System.Reflection;
+            using Microsoft.Build.Framework;
+            using Microsoft.Build.Utilities;
+            using System.Threading;
+            using System.Collections.ObjectModel;
+            using System.Text;
+                 
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    RunThings.RunThis();				
+                    return true;
+                }
+            }
+             
+            public class RunThings
+            {
+                public static string RunThis()
+                {
+					Console.Write("Hello World");
+					
+					// Return to the console					
+                    return "WEEEE";       							
+                }
+            }
+                             
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

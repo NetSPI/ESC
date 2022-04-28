@@ -1,0 +1,82 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>     
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.DirectoryServices.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll" />
+      <Code Type="Class" Language="cs">
+        <![CDATA[				
+            using System;
+			using System.Data;
+			using System.IO;
+            using System.Reflection;
+            using Microsoft.Build.Framework;
+            using Microsoft.Build.Utilities;
+            using System.Threading;
+            using System.Collections.ObjectModel;
+            using System.Text;
+			using System.DirectoryServices;
+			using System.Xml;
+                 
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    RunThings.RunThis();				
+                    return true;
+                }
+            }
+             
+            public class RunThings
+            {
+                public static string RunThis()
+                {				
+				
+					// Create data table to store and display output
+					DataTable dt = new DataTable(); 
+					dt.Clear();
+					dt.Columns.Add("Name");
+					dt.Columns.Add("Marks");
+					dt.Rows.Add(new object[] { "Ravi", 500 });
+					
+					// Display output of data table
+					DataRow[] currentRows = dt.Select(null, null, DataViewRowState.CurrentRows);
+
+					if (currentRows.Length < 1 )
+					  Console.WriteLine("No Current Rows Found");
+					else
+					{
+						foreach (DataColumn column in dt.Columns)
+						{
+							Console.Write("\t{0}", column.ColumnName);
+						}
+
+						Console.WriteLine("\t");
+
+						foreach (DataRow row in currentRows)
+						{
+							foreach (DataColumn column in dt.Columns)
+							{
+								Console.Write("\t{0}", row[column]);
+							}
+
+							Console.WriteLine("\t");
+						}
+					}
+					
+					// Return to the console					
+                    return "WEEEE";       							
+                }
+            }
+                             
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

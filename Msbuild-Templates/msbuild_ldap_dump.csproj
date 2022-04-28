@@ -1,0 +1,88 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>     
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.DirectoryServices.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll" />
+      <Code Type="Class" Language="cs">
+        <![CDATA[				
+			using System;
+			using System.Data;
+			using System.IO;
+			using Microsoft.Build.Framework;
+			using Microsoft.Build.Utilities;
+			using System.Text;
+			using System.DirectoryServices;
+			using System.Collections;
+
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    RunThings.RunThis();				
+                    return true;
+                }
+            }
+
+            public class RunThings
+            {
+                public static string RunThis()
+                {								
+						// Setup LDAP query
+            string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\", "");
+            DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
+            RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;
+            Console.WriteLine("Querying " + MyDC + "...");
+            using (DirectorySearcher ds = new DirectorySearcher(RootDirEntry))
+            {
+                ds.Filter = "(&(objectCategory=Computer)(operatingSystem=Windows Server*))";
+                ds.SearchScope = SearchScope.Subtree;
+                ds.PageSize = 1000;
+                StringBuilder str = new StringBuilder();
+
+                using (SearchResultCollection src = ds.FindAll())
+                {
+
+                    foreach (SearchResult result in src)
+                    {
+                        
+                        ResultPropertyCollection property = result.Properties;
+                        ICollection collection = property.PropertyNames;
+                        IEnumerator enumerator = collection.GetEnumerator();
+
+                        while (enumerator.MoveNext())
+                        {
+                            int i = 0;
+
+                            while (i < result.Properties[enumerator.Current.ToString()].Count)
+                            {
+                                str.Append(result.Properties["samAccountName"][0] + "," + enumerator.Current + " = " + result.Properties[enumerator.Current.ToString()][i] + "\r\n");
+                                i++;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                string MyPath = "c:\\tools\\msbuild\\domain_servers.csv";
+				//Console.WriteLine(str);
+                System.IO.File.WriteAllText(MyPath, str.ToString());
+            }
+
+					// Return to the console					
+                    return "placeholder";       							
+                }
+            }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

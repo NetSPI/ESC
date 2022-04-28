@@ -1,0 +1,98 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe file.csproj --> 
+  <!-- C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe -->
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>
+     <Reference Include="C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll" />
+     <!-- Your PowerShell Path May vary -->
+      <Code Type="Class" Language="cs">
+        <![CDATA[
+		
+		/*
+
+		office vb macro to call this from office:
+
+		Sub d()
+
+		commandPath = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe c:\windows\temp\file.csproj"
+		Set WsShell = CreateObject("WScript.Shell")
+		WsShell.Run commandPath, 1, True
+		End Sub
+
+		*/		
+				
+            using System;
+    	    using System.IO;
+            using System.Reflection;
+            using Microsoft.Build.Framework;
+            using Microsoft.Build.Utilities;
+            using System.Threading;
+            using System.Collections.ObjectModel;
+            using System.Management.Automation;
+            using System.Management.Automation.Runspaces;
+            using System.Text;
+                 
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    Console.WriteLine("Hello From a Class.");
+                    Console.WriteLine(powaShell.RunPSCommand());
+		    //TimeSpan interval = new TimeSpan(0, 0, 9999);
+		    //Thread.Sleep(interval); //sleep is just here to see results in console if your executing through macro
+				
+                    return true;
+                }
+            }
+             
+            public class powaShell
+            {
+                public static string RunPSCommand()
+                {
+                                         
+                    //Init stuff
+                     
+                    InitialSessionState iss = InitialSessionState.CreateDefault();
+                    iss.LanguageMode = PSLanguageMode.FullLanguage;
+                    Runspace runspace = RunspaceFactory.CreateRunspace(iss);
+                    runspace.Open();
+                    RunspaceInvoke scriptInvoker = new RunspaceInvoke(runspace);
+                    Pipeline pipeline = runspace.CreatePipeline();
+                     
+		    //Interrogate LockDownPolicy
+		    Console.WriteLine(System.Management.Automation.Security.SystemPolicy.GetSystemLockdownPolicy());                
+                   			
+											
+		    //Add commands
+		    string path = "c:\\windows\\temp\\test.txt"; //Contains Write-Output "hello there" .... or your ps code
+		    string readText = File.ReadAllText(path);
+                    pipeline.Commands.AddScript(readText);
+
+                    //Prep PS for string output and invoke
+                    //pipeline.Commands.Add("Out-String");
+                    Collection<PSObject> results = pipeline.Invoke();
+                    runspace.Close();
+
+                    //Convert records to strings
+                    StringBuilder stringBuilder = new StringBuilder();
+                    foreach (PSObject obj in results)
+                    {
+                        stringBuilder.Append(obj).Append("\n");
+                    }
+										
+                    return stringBuilder.ToString().Trim();       
+							
+                }
+            }
+                             
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

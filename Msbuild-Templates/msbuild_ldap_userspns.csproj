@@ -1,0 +1,137 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>     
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.DirectoryServices.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll" />
+	<Reference Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll" />
+      <Code Type="Class" Language="cs">
+        <![CDATA[				
+			using System;
+			using System.Data;
+			using System.IO;
+			using Microsoft.Build.Framework;
+			using Microsoft.Build.Utilities;
+			using System.Text;
+			using System.DirectoryServices;
+			using System.Xml;
+
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    RunThings.RunThis();				
+                    return true;
+                }
+            }
+
+            public class RunThings
+            {
+                public static string RunThis()
+                {								
+					// Create data table to store and display output
+					DataTable dt = new DataTable(); 
+					dt.Clear();
+					dt.Columns.Add("SamAccountName");
+					dt.Columns.Add("servicePrincipalName");
+					dt.Columns.Add("ServiceType");
+					
+					// Setup LDAP query
+					string MyDC = System.Environment.GetEnvironmentVariable("logonserver").Replace("\\\\","");	
+					DirectoryEntry RootDirEntry = new DirectoryEntry("LDAP://" + MyDC + ":636",null,null,AuthenticationTypes.SecureSocketsLayer);
+					RootDirEntry.AuthenticationType = AuthenticationTypes.Secure;	
+					Console.WriteLine("Querying " + MyDC + "...");
+					using (DirectorySearcher ds = new DirectorySearcher(RootDirEntry))
+					{
+						//ds.Filter = "(&(objectClass=user)(objectCategory=person))";
+						ds.Filter = "(&(servicePrincipalName=*)(objectClass=user)(objectCategory=person))";
+						ds.SearchScope = SearchScope.Subtree;
+						ds.PageSize = 1000;
+						using (SearchResultCollection src = ds.FindAll())
+						{
+							foreach (SearchResult sr in src)
+							{
+							
+								try
+								{
+									foreach (string spn in sr.Properties["servicePrincipalName"])
+									{
+										// Grab properties
+										string SamAccountName = sr.Properties["sAMAccountName"][0].ToString();
+										int spnindex = spn.IndexOf('/');
+										string ServiceType = spn.Substring(0, spnindex);								
+
+										// Add record to output table
+										dt.Rows.Add(new object[] {SamAccountName,spn,ServiceType});
+									}
+								}
+								catch
+								{
+								}
+							}
+						}
+					}		
+
+					// Display output of data table
+					DataRow[] currentRows = dt.Select(null, null, DataViewRowState.CurrentRows);
+
+					if (currentRows.Length < 1 )
+					  Console.WriteLine("No Current Rows Found");
+					else
+					{
+						foreach (DataColumn column in dt.Columns)
+						{
+							Console.Write("\t{0}", column.ColumnName);
+						}
+
+						Console.WriteLine("\t");
+
+						foreach (DataRow row in currentRows)
+						{
+							foreach (DataColumn column in dt.Columns)
+							{
+								Console.Write("\t{0}", row[column]);
+							}
+
+							Console.WriteLine("\t");
+						}
+					}					
+
+					// Build CSV
+					StringBuilder fileContent = new StringBuilder();
+					string MyPath = "c:\\tools\\msbuild\\domain_spns.csv";
+
+					foreach (var col in dt.Columns) 
+					{
+						fileContent.Append(col.ToString() + ",");
+					}
+
+					fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+
+					foreach (DataRow dr in dt.Rows) 
+					{
+						foreach (var column in dr.ItemArray) 
+						{
+							fileContent.Append("\"" + column.ToString() + "\",");
+						}
+
+							fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
+					}
+
+					// Write CSV to disk
+					System.IO.File.WriteAllText(MyPath, fileContent.ToString());
+
+					// Return to the console					
+                    return "placeholder";       							
+                }
+            }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>

