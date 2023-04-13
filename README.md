@@ -209,6 +209,13 @@ ESC can also be executed through AppDomain hijacking using a configuration file.
 
 <pre>ScriptRunner.exe</pre>
 
+Note: Alternatively, the assemblyBinding and probing tags can be removed from the configuration file and replaced with the 
+<developmentMode developerInstallation="true"/>  tag within the runtime tag.  If that tag is present in  the configuration file, 
+the .NET application will attempt to use the DEVPATH environmental variable as a search path for referenced assemblies. 
+As such, it can be used as an alternative to probing.
+
+Reference: https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/how-to-locate-assemblies-by-using-devpath
+
  # Supported Commands <a name="supportedcommands"></a>
 
  ### COMMAND LIST
